@@ -1,0 +1,23 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="section-heading text-center" style="margin-inline:auto;">
+      <h1 class="heading-xl">{{ 'general.search.title' | t }}</h1>
+    </div>
+    <div class="collection-grid">
+      {% for collection in collections %}
+        <a href="{{ collection.url }}" class="product-card">
+          <div class="product-card__media">
+            {% if collection.featured_image %}
+              <img src="{{ collection.featured_image | image_url: width: 600 }}" alt="{{ collection.title }}" loading="lazy" width="600" height="{{ 600 | divided_by: collection.featured_image.aspect_ratio | default: 600 }}">
+            {% endif %}
+          </div>
+          <p class="product-card__title">{{ collection.title }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Alle Kollektionen", "settings": [] }
+{% endschema %}

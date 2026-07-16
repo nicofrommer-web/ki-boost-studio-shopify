@@ -1,0 +1,12 @@
+<div class="section-padding">
+  <div class="container empty-state">
+    <span class="eyebrow" style="justify-content:center;">404</span>
+    <h1 class="heading-xl">{{ 'general.404.title' | t }}</h1>
+    <p style="opacity:0.7; max-width: 30rem; margin: 0 auto 2rem;">{{ 'general.404.subtext' | t }}</p>
+    <a href="{{ routes.root_url }}" class="button button--dark">{{ 'general.404.link' | t }}</a>
+  </div>
+</div>
+
+{% schema %}
+{ "name": "404-Seite", "settings": [] }
+{% endschema %}

@@ -1,0 +1,33 @@
+<div class="section-padding">
+  <div class="container">
+    <h1 class="heading-xl" style="margin-bottom: 2.5rem;">{{ blog.title }}</h1>
+
+    {% paginate blog.articles by 12 %}
+      <div class="grid grid--3">
+        {% for article in blog.articles %}
+          <a href="{{ article.url }}" class="service-card">
+            {% if article.image %}
+              <div class="product-card__media" style="margin-bottom:1.25rem;">
+                <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}" loading="lazy" width="600" height="{{ 600 | divided_by: article.image.aspect_ratio | default: 600 }}">
+              </div>
+            {% endif %}
+            <h2 class="service-card__title">{{ article.title }}</h2>
+            <p class="service-card__text">{{ article.excerpt_or_content | strip_html | truncatewords: 20 }}</p>
+            <span class="service-card__link">{{ 'blogs.article.read_more' | t }} {% render 'icon-arrow-right' %}</span>
+          </a>
+        {% endfor %}
+      </div>
+
+      {% if paginate.pages > 1 %}
+        <nav class="pagination" aria-label="{{ 'general.pagination.label' | t }}" style="margin-top: 3rem; text-align:center;">
+          {% if paginate.previous %}<a href="{{ paginate.previous.url }}">&larr; {{ 'general.pagination.previous' | t }}</a>{% endif %}
+          {% if paginate.next %}<a href="{{ paginate.next.url }}" style="margin-left:1.5rem;">{{ 'general.pagination.next' | t }} &rarr;</a>{% endif %}
+        </nav>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Blog", "settings": [] }
+{% endschema %}

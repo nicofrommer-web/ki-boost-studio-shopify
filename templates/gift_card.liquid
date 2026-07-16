@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ 'Gutschein' }} - {{ shop.name }}</title>
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body class="bg-black" style="min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center;">
+    <div style="max-width: 26rem; padding: 2rem;">
+      <span class="eyebrow" style="justify-content:center;">Geschenkgutschein</span>
+      <h1 style="color: var(--color-white);">{{ gift_card.initial_value | money }}</h1>
+      <p style="opacity:0.7;">Gültig bei {{ shop.name }}</p>
+      <p style="font-family: monospace; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--color-gold); margin: 1.5rem 0;">{{ gift_card.code | format_code }}</p>
+      {% if gift_card.enabled and gift_card.expired == false %}
+        <p style="color: var(--color-white); opacity:0.6;">Restguthaben: {{ gift_card.balance | money }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

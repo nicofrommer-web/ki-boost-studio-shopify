@@ -1,0 +1,52 @@
+<div class="section-padding">
+  <div class="container">
+    <p><a href="{{ routes.account_url }}">&larr; {{ 'customer.account.return' | t }}</a></p>
+    <h1 class="heading-xl">{{ 'customer.addresses.title' | t }}</h1>
+
+    {% for address in customer.addresses %}
+      <div class="address-card">
+        <p>{{ address | format_address }}</p>
+        {% if address == customer.default_address %}
+          <span class="eyebrow">{{ 'customer.addresses.default' | t }}</span>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    {% form 'customer_address', customer.new_address %}
+      <h2 style="font-size:1.1rem; margin-top:2rem;">{{ 'customer.addresses.add_new' | t }}</h2>
+      <div class="form-grid form-grid--split" style="margin-bottom:1.25rem;">
+        <div class="form-field">
+          <label for="AddressFirstName">{{ 'customer.addresses.first_name' | t }}</label>
+          <input type="text" id="AddressFirstName" name="address[first_name]">
+        </div>
+        <div class="form-field">
+          <label for="AddressLastName">{{ 'customer.addresses.last_name' | t }}</label>
+          <input type="text" id="AddressLastName" name="address[last_name]">
+        </div>
+      </div>
+      <div class="form-field" style="margin-bottom:1.25rem;">
+        <label for="AddressCompany">{{ 'customer.addresses.company' | t }}</label>
+        <input type="text" id="AddressCompany" name="address[company]">
+      </div>
+      <div class="form-field" style="margin-bottom:1.25rem;">
+        <label for="AddressLine1">{{ 'customer.addresses.address1' | t }}</label>
+        <input type="text" id="AddressLine1" name="address[address1]">
+      </div>
+      <div class="form-field" style="margin-bottom:1.25rem;">
+        <label for="AddressLine2">{{ 'customer.addresses.address2' | t }}</label>
+        <input type="text" id="AddressLine2" name="address[address2]">
+      </div>
+      <div class="form-grid form-grid--split" style="margin-bottom:1.25rem;">
+        <div class="form-field">
+          <label for="AddressCity">{{ 'customer.addresses.city' | t }}</label>
+          <input type="text" id="AddressCity" name="address[city]">
+        </div>
+        <div class="form-field">
+          <label for="AddressZip">{{ 'customer.addresses.zip' | t }}</label>
+          <input type="text" id="AddressZip" name="address[zip]">
+        </div>
+      </div>
+      <button type="submit" class="button button--dark">{{ 'customer.addresses.add' | t }}</button>
+    {% endform %}
+  </div>
+</div>

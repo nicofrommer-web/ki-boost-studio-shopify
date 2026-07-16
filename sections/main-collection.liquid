@@ -1,0 +1,37 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="section-heading">
+      <h1 class="heading-xl">{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <div class="rich-text">{{ collection.description }}</div>
+      {% endif %}
+    </div>
+
+    {% paginate collection.products by 24 %}
+      {% if collection.products.size > 0 %}
+        <div class="collection-grid">
+          {% for product in collection.products %}
+            {% render 'product-card', product: product %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="empty-state">{{ 'general.search.no_results_html' | t: terms: collection.title }}</p>
+      {% endif %}
+
+      {% if paginate.pages > 1 %}
+        <nav class="pagination" aria-label="{{ 'general.pagination.label' | t }}" style="margin-top: 3rem; text-align:center;">
+          {% if paginate.previous %}
+            <a href="{{ paginate.previous.url }}">&larr; {{ 'general.pagination.previous' | t }}</a>
+          {% endif %}
+          {% if paginate.next %}
+            <a href="{{ paginate.next.url }}" style="margin-left:1.5rem;">{{ 'general.pagination.next' | t }} &rarr;</a>
+          {% endif %}
+        </nav>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Kollektion", "settings": [] }
+{% endschema %}

@@ -1,0 +1,24 @@
+{%- doc -%}
+  Parameter: product {Product}
+{%- enddoc -%}
+<a href="{{ product.url }}" class="product-card">
+  <div class="product-card__media">
+    {% if product.featured_image %}
+      <img
+        src="{{ product.featured_image | image_url: width: 600 }}"
+        alt="{{ product.featured_image.alt | default: product.title }}"
+        loading="lazy"
+        width="600"
+        height="{{ 600 | divided_by: product.featured_image.aspect_ratio | default: 600 }}"
+      >
+    {% endif %}
+  </div>
+  <p class="product-card__title">{{ product.title }}</p>
+  <p class="product-card__price">
+    {%- if product.price_varies -%}
+      {{ 'products.product.price.from_price_html' | t: price: product.price_min | money }}
+    {%- else -%}
+      {{ product.price | money }}
+    {%- endif -%}
+  </p>
+</a>

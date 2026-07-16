@@ -1,0 +1,19 @@
+<div class="section-padding">
+  <div class="container narrow-form">
+    <h1 class="heading-xl">{{ 'customer.activate_account.title' | t }}</h1>
+    <p style="opacity:0.7; margin-bottom:1.5rem;">{{ 'customer.activate_account.subtext' | t }}</p>
+
+    {% form 'activate_customer_password' %}
+      <div class="form-field" style="margin-bottom:1.25rem;">
+        <label for="CustomerPassword">{{ 'customer.activate_account.password' | t }}</label>
+        <input type="password" id="CustomerPassword" name="customer[password]" required>
+      </div>
+      <div class="form-field" style="margin-bottom:1.25rem;">
+        <label for="CustomerPasswordConfirmation">{{ 'customer.activate_account.password_confirm' | t }}</label>
+        <input type="password" id="CustomerPasswordConfirmation" name="customer[password_confirmation]" required>
+      </div>
+      <button type="submit" class="button button--dark button--block">{{ 'customer.activate_account.submit' | t }}</button>
+      <button type="submit" name="decline" class="button button--outline button--block" style="margin-top:0.75rem;">{{ 'customer.activate_account.cancel' | t }}</button>
+    {% endform %}
+  </div>
+</div>

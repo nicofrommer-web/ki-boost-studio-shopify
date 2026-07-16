@@ -1,0 +1,66 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="main-product">
+      <div class="main-product__media">
+        {% if product.featured_image %}
+          <img
+            src="{{ product.featured_image | image_url: width: 900 }}"
+            alt="{{ product.featured_image.alt | default: product.title }}"
+            width="900"
+            height="{{ 900 | divided_by: product.featured_image.aspect_ratio | default: 900 }}"
+          >
+        {% endif %}
+      </div>
+
+      <div>
+        <h1 class="heading-xl">{{ product.title }}</h1>
+        <p class="main-product__price">
+          {%- if product.price_varies -%}
+            {{ 'products.product.price.from_price_html' | t: price: product.price_min | money }}
+          {%- else -%}
+            {{ product.price | money }}
+          {%- endif -%}
+        </p>
+
+        {% form 'product', product %}
+          {% unless product.has_only_default_variant %}
+            {% for option in product.options_with_values %}
+              <div class="product-form__input">
+                <label for="Option-{{ option.position }}"><strong>{{ option.name }}</strong></label>
+                <select id="Option-{{ option.position }}" name="options[{{ option.name }}]">
+                  {% for value in option.values %}
+                    <option value="{{ value }}" {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          {% else %}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          {% endunless %}
+
+          <div class="product-form__input" style="max-width: 8rem;">
+            <label for="Quantity"><strong>{{ 'products.product.quantity.label' | t }}</strong></label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1" style="width:100%; padding:0.8em 1em; border-radius:0.6rem; border:1.5px solid rgba(11,11,12,0.15);">
+          </div>
+
+          <button type="submit" class="button button--primary button--block" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+            {% if product.selected_or_first_available_variant.available %}
+              {{ 'products.product.add_to_cart' | t }}
+            {% else %}
+              {{ 'products.product.sold_out' | t }}
+            {% endif %}
+          </button>
+        {% endform %}
+
+        <div class="rich-text" style="margin-top: 2rem;">
+          {{ product.description }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Produkt", "settings": [] }
+{% endschema %}
