@@ -1,0 +1,25 @@
+{%- doc -%}
+  Rendert eine einzelne Accordion-/FAQ-Zeile mit dem `accordion-custom` Custom Element.
+
+  Parameter:
+  - question: {String} Die Frage / der Summary-Text
+  - answer: {String} HTML-Antworttext (z. B. aus einem Richtext-Block)
+  - open_by_default: {Boolean} optional, öffnet das Element standardmäßig auf allen Breakpoints
+  - id: {String} eindeutige ID für die Details-Gruppe
+{%- enddoc -%}
+<accordion-custom
+  class="accordion-item"
+  {% if open_by_default %}open-by-default-on-mobile open-by-default-on-desktop{% endif %}
+>
+  <details id="{{ id }}">
+    <summary class="accordion__summary" aria-controls="{{ id }}-panel">
+      <span>{{ question }}</span>
+      <span class="accordion__icon" aria-hidden="true">
+        {% render 'icon-plus' %}
+      </span>
+    </summary>
+    <div class="accordion__panel rich-text" id="{{ id }}-panel">
+      {{ answer }}
+    </div>
+  </details>
+</accordion-custom>

@@ -1,0 +1,185 @@
+<section class="section-padding {{ section.settings.background }}" id="faq-{{ section.id }}">
+  <div class="container">
+    <div class="section-heading {% if section.settings.center_heading %}text-center{% endif %}">
+      {% if section.settings.eyebrow != blank %}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="heading-xl">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="section-heading__lede">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    <div class="accordion-list {% if section.settings.wide_list %}accordion-list--wide{% endif %}">
+      {% for block in section.blocks %}
+        {% if block.type == 'question' %}
+          <div {{ block.shopify_attributes }}>
+            {% render 'accordion-custom',
+              question: block.settings.question,
+              answer: block.settings.answer,
+              open_by_default: block.settings.open_by_default,
+              id: 'faq-' | append: section.id | append: '-' | append: forloop.index
+            %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_cta %}
+      <div class="text-center" style="margin-top: 3rem;">
+        <p style="opacity:0.7;">{{ section.settings.cta_text }}</p>
+        <a href="{{ section.settings.cta_url }}" class="button {% if section.settings.background == 'bg-black' %}button--primary{% else %}button--dark{% endif %}">
+          {{ section.settings.cta_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ / Akkordeon",
+  "tag": "section",
+  "class": "shopify-section--faq",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Hintergrund",
+      "options": [
+        { "value": "bg-white", "label": "Weiß" },
+        { "value": "bg-offwhite", "label": "Off-White" },
+        { "value": "bg-black", "label": "Schwarz" }
+      ],
+      "default": "bg-offwhite"
+    },
+    {
+      "type": "checkbox",
+      "id": "center_heading",
+      "label": "Überschrift zentrieren",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "wide_list",
+      "label": "Volle Breite statt zentrierter Spalte",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Kicker-Text",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Häufig gestellte Fragen"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Untertitel",
+      "default": "Alles, was du über KI Boost Studio wissen musst – kurz und verständlich erklärt."
+    },
+    {
+      "type": "header",
+      "content": "Call-to-Action (optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "CTA unter dem FAQ anzeigen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA-Zeile",
+      "default": "Noch Fragen offen?"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button-Text",
+      "default": "Jetzt kostenlos beraten lassen"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button-Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Frage",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Frage",
+          "default": "Wie schnell kann KI Boost Studio starten?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Antwort",
+          "default": "<p>In der Regel starten wir innerhalb von 3–5 Werktagen nach dem Erstgespräch mit der Umsetzung.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Standardmäßig geöffnet",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ / Akkordeon",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "Für wen eignet sich KI Boost Studio?",
+            "answer": "<p>Für kleine und mittelständische Unternehmen, die Prozesse automatisieren, mehr Leads gewinnen und online sichtbarer werden möchten.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Welche Leistungen bietet ihr an?",
+            "answer": "<p>KI-Automationen, Leadgenerierung, Social-Media-Content und professionelle Webseiten-Erstellung – einzeln oder als Komplettpaket.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Wie läuft die Zusammenarbeit ab?",
+            "answer": "<p>Nach einem kostenlosen Erstgespräch erstellen wir ein individuelles Konzept, setzen es gemeinsam mit dir um und betreuen dich danach laufend weiter.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Gibt es eine Mindestlaufzeit?",
+            "answer": "<p>Unsere Pakete sind monatlich kündbar. Wir überzeugen lieber durch Ergebnisse als durch lange Vertragsbindungen.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Was kostet die Zusammenarbeit mit KI Boost Studio?",
+            "answer": "<p>Das hängt vom Umfang ab. Auf unserer Preise-Seite findest du transparente Pakete – oder wir stellen dir ein individuelles Angebot zusammen.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
