@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "Preise", "subheading": "Transparente Pakete für jedes Wachstumsziel – monatlich kündbar, ohne versteckte Kosten." }
+    },
+    "pricing": {
+      "type": "pricing",
+      "blocks": {
+        "plan-1": { "type": "plan", "settings": { "name": "Starter", "description": "Für den Einstieg in KI und Automatisierung.", "price": "ab 490 €", "period": "pro Monat, netto", "features": "1 KI-Automation\nSocial-Media-Grundpaket\nE-Mail-Support\nMonatliches Reporting", "cta_label": "Jetzt anfragen", "cta_url": "/pages/kontakt" } },
+        "plan-2": { "type": "plan", "settings": { "name": "Growth", "badge": "Beliebt", "description": "Unser meistgebuchtes Paket für nachhaltiges Wachstum.", "price": "ab 990 €", "period": "pro Monat, netto", "features": "Bis zu 3 KI-Automationen\nLeadgenerierung inklusive\nSocial-Media-Content-Paket\nPersönlicher Ansprechpartner\nWöchentliches Reporting", "cta_label": "Jetzt anfragen", "cta_url": "/pages/kontakt", "featured": true } },
+        "plan-3": { "type": "plan", "settings": { "name": "Premium", "description": "Die Rundum-Lösung inklusive Webseiten-Erstellung.", "price": "auf Anfrage", "period": "individuelles Angebot", "features": "Unlimitierte KI-Automationen\nLeadgenerierung & Funnel\nSocial-Media-Content-Paket\nWebseiten-Erstellung & Pflege\nDedizierter Ansprechpartner", "cta_label": "Individuelles Angebot anfragen", "cta_url": "/pages/kontakt" } }
+      },
+      "block_order": ["plan-1", "plan-2", "plan-3"],
+      "settings": { "eyebrow": "Unsere Pakete", "heading": "Wähle das passende Paket für dein Unternehmen", "background": "bg-white" }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q-1": { "type": "question", "settings": { "question": "Gibt es eine Mindestlaufzeit?", "answer": "<p>Nein. Alle unsere Pakete sind monatlich kündbar. Wir überzeugen lieber durch Ergebnisse als durch lange Vertragsbindungen.</p>" } },
+        "q-2": { "type": "question", "settings": { "question": "Kann ich später das Paket wechseln?", "answer": "<p>Ja, jederzeit. Wir passen dein Paket flexibel an dein Wachstum an.</p>" } },
+        "q-3": { "type": "question", "settings": { "question": "Sind die Preise Nettopreise?", "answer": "<p>Ja, alle angegebenen Preise verstehen sich zzgl. der gesetzlichen Mehrwertsteuer.</p>" } },
+        "q-4": { "type": "question", "settings": { "question": "Was, wenn ich ein individuelles Angebot benötige?", "answer": "<p>Kein Problem – kontaktiere uns einfach, wir erstellen dir ein maßgeschneidertes Angebot basierend auf deinen Zielen.</p>" } }
+      },
+      "block_order": ["q-1", "q-2", "q-3", "q-4"],
+      "settings": { "eyebrow": "Fragen zu unseren Preisen", "heading": "Häufige Fragen", "background": "bg-offwhite", "show_cta": false }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": { "heading": "Noch unsicher, welches Paket passt?", "text": "Vereinbare ein kostenloses Erstgespräch – wir beraten dich unverbindlich zum passenden Paket.", "primary_url": "/pages/kontakt" }
+    }
+  },
+  "order": ["header", "pricing", "faq", "cta-banner"]
+}

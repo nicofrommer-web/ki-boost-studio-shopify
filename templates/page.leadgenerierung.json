@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "Leadgenerierung", "subheading": "Planbar neue Anfragen gewinnen – mit System, klarer Strategie und messbaren Ergebnissen." }
+    },
+    "intro": {
+      "type": "image-with-text",
+      "blocks": {
+        "b1": { "type": "bullet", "settings": { "text": "Zielgruppengenaue Kampagnen auf Social Media & Google" } },
+        "b2": { "type": "bullet", "settings": { "text": "Automatisierte Funnel- und Landingpage-Strategien" } },
+        "b3": { "type": "bullet", "settings": { "text": "KI-gestütztes Lead-Scoring & Nachverfolgung" } },
+        "b4": { "type": "bullet", "settings": { "text": "Transparentes Reporting mit klaren Kennzahlen" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "eyebrow": "Leadgenerierung",
+        "heading": "Mehr qualifizierte Anfragen, weniger Streuverlust",
+        "text": "<p>Wir entwickeln individuelle Leadgenerierungs-Strategien, die genau auf deine Zielgruppe zugeschnitten sind. Statt auf Zufall zu setzen, arbeiten wir mit klaren Funnels, datenbasierten Kampagnen und automatisierter Nachverfolgung.</p>",
+        "cta_label": "Kostenlose Potenzialanalyse anfragen",
+        "cta_url": "/pages/kontakt"
+      }
+    },
+    "detail": {
+      "type": "image-with-text",
+      "settings": {
+        "reverse": true,
+        "background": "bg-offwhite",
+        "eyebrow": "Unser Ansatz",
+        "heading": "Vom ersten Klick bis zum abgeschlossenen Deal",
+        "text": "<p>Wir begleiten den gesamten Weg deiner potenziellen Kunden: von der ersten Aufmerksamkeit über die Landingpage bis zur automatisierten Nachfassaktion – damit aus Interessenten zahlende Kunden werden.</p>",
+        "cta_label": "",
+        "cta_url": ""
+      }
+    },
+    "benefits": {
+      "type": "benefits",
+      "blocks": {
+        "benefit-1": { "type": "benefit", "settings": { "icon": "leads", "title": "Planbarer Anfragenfluss", "text": "Statt Zufallstreffer erhältst du kontinuierlich neue, qualifizierte Anfragen." } },
+        "benefit-2": { "type": "benefit", "settings": { "icon": "chart", "title": "Messbare Ergebnisse", "text": "Transparente Reportings zeigen dir genau, was funktioniert." } },
+        "benefit-3": { "type": "benefit", "settings": { "icon": "automation", "title": "Automatisierte Nachverfolgung", "text": "KI übernimmt die Erstansprache und entlastet dein Team." } }
+      },
+      "block_order": ["benefit-1", "benefit-2", "benefit-3"],
+      "settings": { "eyebrow": "Vorteile", "heading": "Warum unsere Leadgenerierung funktioniert", "background": "bg-white" }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": { "heading": "Bereit für planbar mehr Anfragen?", "primary_url": "/pages/kontakt" }
+    }
+  },
+  "order": ["header", "intro", "detail", "benefits", "cta-banner"]
+}

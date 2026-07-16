@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "FAQ", "subheading": "Alle Antworten auf die häufigsten Fragen rund um KI Boost Studio." }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q-1": { "type": "question", "settings": { "question": "Für wen eignet sich KI Boost Studio?", "answer": "<p>Für kleine und mittelständische Unternehmen, die Prozesse automatisieren, mehr Leads gewinnen und online sichtbarer werden möchten.</p>" } },
+        "q-2": { "type": "question", "settings": { "question": "Welche Leistungen bietet ihr an?", "answer": "<p>KI-Automationen, Leadgenerierung, Social-Media-Content und professionelle Webseiten-Erstellung – einzeln oder als Komplettpaket.</p>" } },
+        "q-3": { "type": "question", "settings": { "question": "Wie läuft die Zusammenarbeit ab?", "answer": "<p>Nach einem kostenlosen Erstgespräch erstellen wir ein individuelles Konzept, setzen es gemeinsam mit dir um und betreuen dich danach laufend weiter.</p>" } },
+        "q-4": { "type": "question", "settings": { "question": "Gibt es eine Mindestlaufzeit?", "answer": "<p>Unsere Pakete sind monatlich kündbar. Wir überzeugen lieber durch Ergebnisse als durch lange Vertragsbindungen.</p>" } },
+        "q-5": { "type": "question", "settings": { "question": "Was kostet die Zusammenarbeit mit KI Boost Studio?", "answer": "<p>Das hängt vom Umfang ab. Auf unserer Preise-Seite findest du transparente Pakete – oder wir stellen dir ein individuelles Angebot zusammen.</p>" } },
+        "q-6": { "type": "question", "settings": { "question": "Wie schnell sehe ich erste Ergebnisse?", "answer": "<p>Je nach Leistung siehst du erste Ergebnisse häufig schon innerhalb der ersten 30 Tage – zum Beispiel bei Automationen oder Content-Veröffentlichungen.</p>" } },
+        "q-7": { "type": "question", "settings": { "question": "Sind eure Lösungen DSGVO-konform?", "answer": "<p>Ja, Datenschutz hat bei uns höchste Priorität. Alle Automationen und Tools werden DSGVO-konform umgesetzt.</p>" } },
+        "q-8": { "type": "question", "settings": { "question": "Benötige ich technisches Vorwissen?", "answer": "<p>Nein. Wir übernehmen die technische Umsetzung vollständig und erklären dir alles verständlich, ohne Fachchinesisch.</p>" } }
+      },
+      "block_order": ["q-1", "q-2", "q-3", "q-4", "q-5", "q-6", "q-7", "q-8"],
+      "settings": { "eyebrow": "FAQ", "heading": "Häufig gestellte Fragen", "background": "bg-white", "wide_list": true }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": { "heading": "Deine Frage war nicht dabei?", "text": "Schreib uns direkt – wir melden uns innerhalb von 24 Stunden bei dir.", "primary_label": "Jetzt Kontakt aufnehmen", "primary_url": "/pages/kontakt" }
+    }
+  },
+  "order": ["header", "faq", "cta-banner"]
+}

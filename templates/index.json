@@ -1,0 +1,105 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "stat-1": { "type": "stat", "settings": { "value": "120+", "label": "Projekte umgesetzt" } },
+        "stat-2": { "type": "stat", "settings": { "value": "98%", "label": "Kundenzufriedenheit" } },
+        "stat-3": { "type": "stat", "settings": { "value": "24/7", "label": "KI im Einsatz" } }
+      },
+      "block_order": ["stat-1", "stat-2", "stat-3"],
+      "settings": {
+        "eyebrow": "KI Boost Studio",
+        "heading_prefix": "Mehr Effizienz, mehr Leads,",
+        "heading_highlight": "mehr Wachstum.",
+        "subheading": "Wir automatisieren deine Prozesse mit KI, generieren planbar neue Leads und bauen dir eine Webseite, die verkauft – aus einer Hand.",
+        "primary_cta_label": "Kostenloses Erstgespräch sichern",
+        "primary_cta_url": "/pages/kontakt",
+        "secondary_cta_label": "Leistungen entdecken",
+        "secondary_cta_url": "/pages/leistungen"
+      }
+    },
+    "trust-bar": {
+      "type": "trust-bar",
+      "blocks": {
+        "item-1": { "type": "item", "settings": { "text": "Made in Germany" } },
+        "item-2": { "type": "item", "settings": { "text": "DSGVO-konform" } },
+        "item-3": { "type": "item", "settings": { "text": "Persönliche Betreuung" } },
+        "item-4": { "type": "item", "settings": { "text": "Erste Ergebnisse in 30 Tagen" } },
+        "item-5": { "type": "item", "settings": { "text": "Monatlich kündbar" } }
+      },
+      "block_order": ["item-1", "item-2", "item-3", "item-4", "item-5"],
+      "settings": {}
+    },
+    "services-overview": {
+      "type": "services-overview",
+      "blocks": {
+        "service-1": { "type": "service", "settings": { "icon": "automation", "title": "KI-Automationen", "text": "Wir automatisieren wiederkehrende Aufgaben mit KI – von der Kundenkommunikation bis zur internen Prozessteuerung.", "link_label": "Mehr erfahren", "url": "/pages/ki-automationen" } },
+        "service-2": { "type": "service", "settings": { "icon": "leads", "title": "Leadgenerierung", "text": "Planbar neue Anfragen gewinnen statt auf Zufall zu hoffen – mit System, Funnel und klarer Strategie.", "link_label": "Mehr erfahren", "url": "/pages/leadgenerierung" } },
+        "service-3": { "type": "service", "settings": { "icon": "social", "title": "Social-Media-Content", "text": "Hochwertiger Content, der deine Marke sichtbar macht und deine Zielgruppe wirklich erreicht.", "link_label": "Mehr erfahren", "url": "/pages/social-media-content" } },
+        "service-4": { "type": "service", "settings": { "icon": "web", "title": "Webseiten-Erstellung", "text": "Moderne, schnelle und conversion-starke Webseiten, die aus Besuchern Kunden machen.", "link_label": "Mehr erfahren", "url": "/pages/webseiten-erstellung" } }
+      },
+      "block_order": ["service-1", "service-2", "service-3", "service-4"],
+      "settings": { "eyebrow": "Unsere Leistungen", "heading": "Alles, was dein Business nach vorne bringt" }
+    },
+    "benefits": {
+      "type": "benefits",
+      "blocks": {
+        "benefit-1": { "type": "benefit", "settings": { "icon": "clock", "title": "Zeitersparnis", "text": "Automatisierte Prozesse sparen dir und deinem Team jede Woche wertvolle Arbeitszeit." } },
+        "benefit-2": { "type": "benefit", "settings": { "icon": "chart", "title": "Messbares Wachstum", "text": "Mehr Leads, mehr Reichweite und mehr Umsatz – transparent nachvollziehbar." } },
+        "benefit-3": { "type": "benefit", "settings": { "icon": "shield", "title": "DSGVO-konform", "text": "Alle Lösungen erfüllen deutsche und europäische Datenschutzstandards." } },
+        "benefit-4": { "type": "benefit", "settings": { "icon": "heart", "title": "Persönliche Betreuung", "text": "Ein festes Team begleitet dich – keine anonymen Ticket-Systeme." } },
+        "benefit-5": { "type": "benefit", "settings": { "icon": "automation", "title": "State-of-the-Art KI", "text": "Wir setzen auf aktuelle, leistungsstarke KI-Technologien statt Standardlösungen." } },
+        "benefit-6": { "type": "benefit", "settings": { "icon": "check", "title": "Volle Transparenz", "text": "Klare Pakete, klare Kosten, klare Ergebnisse – keine versteckten Kosten." } }
+      },
+      "block_order": ["benefit-1", "benefit-2", "benefit-3", "benefit-4", "benefit-5", "benefit-6"],
+      "settings": { "eyebrow": "Warum KI Boost Studio", "heading": "Deine Vorteile auf einen Blick" }
+    },
+    "process-steps": {
+      "type": "process-steps",
+      "blocks": {
+        "step-1": { "type": "step", "settings": { "title": "Kostenloses Erstgespräch", "text": "Wir lernen dein Unternehmen kennen und analysieren deine Ausgangssituation und Ziele." } },
+        "step-2": { "type": "step", "settings": { "title": "Individuelles Konzept", "text": "Du erhältst eine maßgeschneiderte Strategie inklusive transparentem Angebot." } },
+        "step-3": { "type": "step", "settings": { "title": "Umsetzung & Betreuung", "text": "Wir setzen alles um und begleiten dich danach laufend mit Optimierungen." } }
+      },
+      "block_order": ["step-1", "step-2", "step-3"],
+      "settings": { "eyebrow": "So läuft es ab", "heading": "In 3 Schritten zu mehr Erfolg" }
+    },
+    "pricing": {
+      "type": "pricing",
+      "blocks": {
+        "plan-1": { "type": "plan", "settings": { "name": "Starter", "description": "Für den Einstieg in KI und Automatisierung.", "price": "ab 490 €", "period": "pro Monat, netto", "features": "1 KI-Automation\nSocial-Media-Grundpaket\nE-Mail-Support\nMonatliches Reporting", "cta_label": "Jetzt anfragen", "cta_url": "/pages/kontakt" } },
+        "plan-2": { "type": "plan", "settings": { "name": "Growth", "badge": "Beliebt", "description": "Unser meistgebuchtes Paket für nachhaltiges Wachstum.", "price": "ab 990 €", "period": "pro Monat, netto", "features": "Bis zu 3 KI-Automationen\nLeadgenerierung inklusive\nSocial-Media-Content-Paket\nPersönlicher Ansprechpartner\nWöchentliches Reporting", "cta_label": "Jetzt anfragen", "cta_url": "/pages/kontakt", "featured": true } },
+        "plan-3": { "type": "plan", "settings": { "name": "Premium", "description": "Die Rundum-Lösung inklusive Webseiten-Erstellung.", "price": "auf Anfrage", "period": "individuelles Angebot", "features": "Unlimitierte KI-Automationen\nLeadgenerierung & Funnel\nSocial-Media-Content-Paket\nWebseiten-Erstellung & Pflege\nDedizierter Ansprechpartner", "cta_label": "Individuelles Angebot anfragen", "cta_url": "/pages/kontakt" } }
+      },
+      "block_order": ["plan-1", "plan-2", "plan-3"],
+      "settings": { "eyebrow": "Preise", "heading": "Transparente Pakete für jedes Wachstumsziel" }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t-1": { "type": "testimonial", "settings": { "quote": "Die Zusammenarbeit mit KI Boost Studio hat unsere Prozesse spürbar effizienter gemacht. Klare Kommunikation, schnelle Umsetzung.", "name": "Julia Beckmann", "role": "Geschäftsführerin, Beckmann GmbH", "rating": 5 } },
+        "t-2": { "type": "testimonial", "settings": { "quote": "Innerhalb weniger Wochen hatten wir deutlich mehr qualifizierte Anfragen. Absolute Empfehlung!", "name": "Markus Weiler", "role": "Inhaber, Weiler Handwerksbetrieb", "rating": 5 } },
+        "t-3": { "type": "testimonial", "settings": { "quote": "Endlich eine Agentur, die KI wirklich versteht und verständlich erklärt. Top Betreuung!", "name": "Sarah Nguyen", "role": "Marketingleitung, NovaCare", "rating": 5 } }
+      },
+      "block_order": ["t-1", "t-2", "t-3"],
+      "settings": { "eyebrow": "Kundenstimmen", "heading": "Das sagen unsere Kunden" }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q-1": { "type": "question", "settings": { "question": "Für wen eignet sich KI Boost Studio?", "answer": "<p>Für kleine und mittelständische Unternehmen, die Prozesse automatisieren, mehr Leads gewinnen und online sichtbarer werden möchten.</p>" } },
+        "q-2": { "type": "question", "settings": { "question": "Welche Leistungen bietet ihr an?", "answer": "<p>KI-Automationen, Leadgenerierung, Social-Media-Content und professionelle Webseiten-Erstellung – einzeln oder als Komplettpaket.</p>" } },
+        "q-3": { "type": "question", "settings": { "question": "Wie läuft die Zusammenarbeit ab?", "answer": "<p>Nach einem kostenlosen Erstgespräch erstellen wir ein individuelles Konzept, setzen es gemeinsam mit dir um und betreuen dich danach laufend weiter.</p>" } },
+        "q-4": { "type": "question", "settings": { "question": "Gibt es eine Mindestlaufzeit?", "answer": "<p>Unsere Pakete sind monatlich kündbar. Wir überzeugen lieber durch Ergebnisse als durch lange Vertragsbindungen.</p>" } }
+      },
+      "block_order": ["q-1", "q-2", "q-3", "q-4"],
+      "settings": { "eyebrow": "FAQ", "heading": "Häufig gestellte Fragen", "cta_url": "/pages/faq" }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": { "primary_url": "/pages/kontakt" }
+    }
+  },
+  "order": ["hero", "trust-bar", "services-overview", "benefits", "process-steps", "pricing", "testimonials", "faq", "cta-banner"]
+}

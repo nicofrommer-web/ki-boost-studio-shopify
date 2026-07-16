@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "Über uns", "subheading": "Wir sind KI Boost Studio – dein Partner für Automatisierung, Wachstum und moderne Digitalpräsenz." }
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "eyebrow": "Unsere Geschichte",
+        "heading": "Aus Leidenschaft für KI und digitales Wachstum",
+        "text": "<p>KI Boost Studio wurde mit einem klaren Ziel gegründet: kleinen und mittelständischen Unternehmen den Zugang zu leistungsstarker KI-Technologie zu ermöglichen – verständlich, praxisnah und ohne technisches Fachchinesisch. Wir kombinieren Automatisierung, Leadgenerierung, Content und Webdesign zu einem stimmigen System, das messbar Ergebnisse liefert.</p>"
+      }
+    },
+    "values": {
+      "type": "benefits",
+      "blocks": {
+        "benefit-1": { "type": "benefit", "settings": { "icon": "heart", "title": "Persönlich", "text": "Ein festes Team begleitet dich – keine anonymen Ticket-Systeme." } },
+        "benefit-2": { "type": "benefit", "settings": { "icon": "check", "title": "Transparent", "text": "Klare Kommunikation, klare Kosten, klare Ergebnisse." } },
+        "benefit-3": { "type": "benefit", "settings": { "icon": "automation", "title": "Innovativ", "text": "Wir setzen auf aktuelle KI-Technologien statt Standardlösungen." } },
+        "benefit-4": { "type": "benefit", "settings": { "icon": "shield", "title": "Verlässlich", "text": "DSGVO-konforme, stabile und nachhaltige Lösungen." } }
+      },
+      "block_order": ["benefit-1", "benefit-2", "benefit-3", "benefit-4"],
+      "settings": { "eyebrow": "Unsere Werte", "heading": "Wofür wir stehen", "background": "bg-offwhite" }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t-1": { "type": "testimonial", "settings": { "quote": "Die Zusammenarbeit mit KI Boost Studio hat unsere Prozesse spürbar effizienter gemacht.", "name": "Julia Beckmann", "role": "Geschäftsführerin, Beckmann GmbH", "rating": 5 } },
+        "t-2": { "type": "testimonial", "settings": { "quote": "Innerhalb weniger Wochen hatten wir deutlich mehr qualifizierte Anfragen.", "name": "Markus Weiler", "role": "Inhaber, Weiler Handwerksbetrieb", "rating": 5 } },
+        "t-3": { "type": "testimonial", "settings": { "quote": "Endlich eine Agentur, die KI wirklich versteht und verständlich erklärt.", "name": "Sarah Nguyen", "role": "Marketingleitung, NovaCare", "rating": 5 } }
+      },
+      "block_order": ["t-1", "t-2", "t-3"],
+      "settings": { "eyebrow": "Kundenstimmen", "heading": "Das sagen unsere Kunden", "background": "bg-white" }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": { "heading": "Lerne uns persönlich kennen", "primary_url": "/pages/kontakt" }
+    }
+  },
+  "order": ["header", "story", "values", "testimonials", "cta-banner"]
+}

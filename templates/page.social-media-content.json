@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "Social-Media-Content", "subheading": "Hochwertiger Content, der deine Marke sichtbar macht und deine Zielgruppe wirklich erreicht." }
+    },
+    "intro": {
+      "type": "image-with-text",
+      "blocks": {
+        "b1": { "type": "bullet", "settings": { "text": "Individuelle Content-Strategie für Instagram, TikTok & Co." } },
+        "b2": { "type": "bullet", "settings": { "text": "KI-gestützte Content-Erstellung in deiner Markensprache" } },
+        "b3": { "type": "bullet", "settings": { "text": "Redaktionsplanung und automatisiertes Posting" } },
+        "b4": { "type": "bullet", "settings": { "text": "Community-Management und Performance-Analyse" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "eyebrow": "Social-Media-Content",
+        "heading": "Content, der auffällt – und überzeugt",
+        "text": "<p>Wir entwickeln eine Content-Strategie, die zu deiner Marke passt, und übernehmen die Produktion, Planung und Veröffentlichung – unterstützt durch KI-Tools, damit du regelmäßig hochwertigen Content ohne Mehraufwand veröffentlichst.</p>",
+        "cta_label": "Kostenlose Content-Analyse anfragen",
+        "cta_url": "/pages/kontakt"
+      }
+    },
+    "detail": {
+      "type": "image-with-text",
+      "settings": {
+        "reverse": true,
+        "background": "bg-offwhite",
+        "eyebrow": "Unser Prozess",
+        "heading": "Von der Idee bis zum fertigen Beitrag",
+        "text": "<p>Wir entwickeln Themen und Formate, erstellen Text, Bild und Video mit Unterstützung modernster KI-Tools und kümmern uns um Planung, Veröffentlichung und Auswertung – damit dein Auftritt konstant hochwertig bleibt.</p>",
+        "cta_label": "",
+        "cta_url": ""
+      }
+    },
+    "benefits": {
+      "type": "benefits",
+      "blocks": {
+        "benefit-1": { "type": "benefit", "settings": { "icon": "social", "title": "Konstante Sichtbarkeit", "text": "Regelmäßiger, hochwertiger Content ohne zusätzlichen Aufwand für dich." } },
+        "benefit-2": { "type": "benefit", "settings": { "icon": "chart", "title": "Mehr Reichweite", "text": "Strategisch geplanter Content erreicht genau deine Zielgruppe." } },
+        "benefit-3": { "type": "benefit", "settings": { "icon": "heart", "title": "Authentisch & markentreu", "text": "Content in deiner Tonalität – nicht generisch von der Stange." } }
+      },
+      "block_order": ["benefit-1", "benefit-2", "benefit-3"],
+      "settings": { "eyebrow": "Vorteile", "heading": "Warum unser Content-Konzept überzeugt", "background": "bg-white" }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": { "heading": "Bereit für starken Social-Media-Content?", "primary_url": "/pages/kontakt" }
+    }
+  },
+  "order": ["header", "intro", "detail", "benefits", "cta-banner"]
+}

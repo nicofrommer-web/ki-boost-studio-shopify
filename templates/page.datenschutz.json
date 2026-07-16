@@ -1,0 +1,100 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "Datenschutzerklärung", "subheading": "Informationen zur Verarbeitung deiner personenbezogenen Daten gemäß DSGVO" }
+    },
+    "content": {
+      "type": "rich-text",
+      "blocks": {
+        "h1": { "type": "heading", "settings": { "heading": "1. Verantwortlicher" } },
+        "t1": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p><p>[Firmenname / Vor- und Nachname]<br>KI Boost Studio<br>[Straße und Hausnummer]<br>[PLZ und Ort]<br>E-Mail: [kontakt@ki-boost-studio.de]</p>"
+          }
+        },
+        "h2": { "type": "heading", "settings": { "heading": "2. Allgemeines zur Datenverarbeitung" } },
+        "t2": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist. Die Verarbeitung personenbezogener Daten erfolgt regelmäßig nur nach Einwilligung der Nutzer oder auf Basis einer anderen gesetzlichen Erlaubnis.</p>"
+          }
+        },
+        "h3": { "type": "heading", "settings": { "heading": "3. Rechtsgrundlagen der Verarbeitung" } },
+        "t3": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Soweit wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen Person einholen, dient Art. 6 Abs. 1 lit. a DSGVO als Rechtsgrundlage. Bei der Verarbeitung von Daten zur Erfüllung eines Vertrags ist Art. 6 Abs. 1 lit. b DSGVO die Rechtsgrundlage. Ist die Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung erforderlich, dient Art. 6 Abs. 1 lit. c DSGVO als Rechtsgrundlage. Soweit die Verarbeitung zur Wahrung eines berechtigten Interesses unsererseits erforderlich ist, dient Art. 6 Abs. 1 lit. f DSGVO als Rechtsgrundlage.</p>"
+          }
+        },
+        "h4": { "type": "heading", "settings": { "heading": "4. Hosting und Bereitstellung der Website" } },
+        "t4": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Diese Website wird auf der Plattform Shopify betrieben, bereitgestellt durch Shopify International Limited, Victoria Buildings, 2. Etage, 1-2 Haddington Road, Dublin 4, D04 XN32, Irland. Beim Aufruf unserer Website erhebt Shopify automatisch technisch notwendige Informationen (sogenannte Server-Logfiles), etwa IP-Adresse, Datum und Uhrzeit des Zugriffs, verwendeter Browser und Betriebssystem. Diese Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer sicheren und stabilen Bereitstellung unserer Website (Art. 6 Abs. 1 lit. f DSGVO). Weitere Informationen findest du in der Datenschutzerklärung von Shopify.</p>"
+          }
+        },
+        "h5": { "type": "heading", "settings": { "heading": "5. Cookies" } },
+        "t5": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Unsere Website verwendet Cookies. Dabei handelt es sich um kleine Textdateien, die auf deinem Endgerät gespeichert werden. Technisch notwendige Cookies (z. B. für den Warenkorb oder die Kundenanmeldung) werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO eingesetzt. Sofern wir zusätzlich Cookies für Analyse- oder Marketingzwecke einsetzen, informieren wir dich hierüber gesondert und holen &ndash; soweit erforderlich &ndash; deine Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO ein.</p>"
+          }
+        },
+        "h6": { "type": "heading", "settings": { "heading": "6. Kontaktformular" } },
+        "t6": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Wenn du uns per Kontaktformular Anfragen zukommen lässt, werden deine Angaben aus dem Anfrageformular inklusive der von dir dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Rechtsgrundlage für die Verarbeitung der Daten ist Art. 6 Abs. 1 lit. b DSGVO, sofern dein Anliegen mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung von Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</p>"
+          }
+        },
+        "h7": { "type": "heading", "settings": { "heading": "7. Newsletter" } },
+        "t7": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Wenn du dich für unseren Newsletter anmeldest, verwenden wir deine E-Mail-Adresse, um dir regelmäßig unseren Newsletter zu senden. Die Anmeldung erfolgt im Double-Opt-in-Verfahren und auf Grundlage deiner Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Du kannst deine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, etwa über den Abmeldelink in jeder Newsletter-E-Mail.</p>"
+          }
+        },
+        "h8": { "type": "heading", "settings": { "heading": "8. Kundenkonto" } },
+        "t8": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Sofern du ein Kundenkonto auf unserer Website anlegst, verarbeiten wir die von dir angegebenen Daten (z. B. Name, Adresse, Bestellhistorie) zur Vertragsabwicklung und Verwaltung deines Kontos auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.</p>"
+          }
+        },
+        "h9": { "type": "heading", "settings": { "heading": "9. Datenübermittlung in Drittländer" } },
+        "t9": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Im Rahmen des Betriebs unserer Website über Shopify kann es zu einer Übermittlung personenbezogener Daten in Länder außerhalb der EU/des EWR kommen (z. B. Kanada, USA). Shopify hat sich verpflichtet, geeignete Garantien gemäß Art. 46 DSGVO (etwa EU-Standardvertragsklauseln) einzuhalten, um ein angemessenes Datenschutzniveau sicherzustellen.</p>"
+          }
+        },
+        "h10": { "type": "heading", "settings": { "heading": "10. Speicherdauer" } },
+        "t10": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen dies vorschreiben. Nach Wegfall des jeweiligen Zwecks bzw. Ablauf der Aufbewahrungsfristen werden die Daten routinemäßig gelöscht.</p>"
+          }
+        },
+        "h11": { "type": "heading", "settings": { "heading": "11. Deine Rechte" } },
+        "t11": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Dir stehen gegenüber uns folgende Rechte in Bezug auf deine personenbezogenen Daten zu: Recht auf Auskunft (Art. 15 DSGVO), Recht auf Berichtigung oder Löschung (Art. 16, 17 DSGVO), Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO), Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO) sowie Recht auf Datenübertragbarkeit (Art. 20 DSGVO). Zudem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten zu beschweren (Art. 77 DSGVO).</p>"
+          }
+        },
+        "h12": { "type": "heading", "settings": { "heading": "12. Änderung dieser Datenschutzerklärung" } },
+        "t12": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen umzusetzen. Für deinen erneuten Besuch gilt dann die jeweils aktuelle Datenschutzerklärung.</p>"
+          }
+        }
+      },
+      "block_order": ["h1", "t1", "h2", "t2", "h3", "t3", "h4", "t4", "h5", "t5", "h6", "t6", "h7", "t7", "h8", "t8", "h9", "t9", "h10", "t10", "h11", "t11", "h12", "t12"],
+      "settings": { "background": "bg-white" }
+    }
+  },
+  "order": ["header", "content"]
+}

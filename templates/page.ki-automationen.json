@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "KI-Automationen", "subheading": "Wiederkehrende Aufgaben automatisch erledigen lassen – mit maßgeschneiderten KI-Workflows für dein Unternehmen." }
+    },
+    "intro": {
+      "type": "image-with-text",
+      "blocks": {
+        "b1": { "type": "bullet", "settings": { "text": "Automatisierte Kundenkommunikation per Chat, E-Mail & WhatsApp" } },
+        "b2": { "type": "bullet", "settings": { "text": "Intelligente Terminplanung und Erinnerungen" } },
+        "b3": { "type": "bullet", "settings": { "text": "Automatische Angebots- und Rechnungserstellung" } },
+        "b4": { "type": "bullet", "settings": { "text": "Nahtlose Anbindung an deine bestehenden Tools" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "eyebrow": "KI-Automationen",
+        "heading": "Zeit sparen, Fehler vermeiden, Kunden begeistern",
+        "text": "<p>Wir analysieren deine wiederkehrenden Aufgaben und entwickeln maßgeschneiderte KI-Automationen, die dir und deinem Team spürbar Zeit sparen. So kannst du dich auf das konzentrieren, was wirklich zählt: dein Kerngeschäft.</p>",
+        "cta_label": "Kostenlose Prozessanalyse anfragen",
+        "cta_url": "/pages/kontakt"
+      }
+    },
+    "detail": {
+      "type": "image-with-text",
+      "settings": {
+        "reverse": true,
+        "background": "bg-offwhite",
+        "eyebrow": "So gehen wir vor",
+        "heading": "Von der Analyse bis zur laufenden Optimierung",
+        "text": "<p>Zuerst identifizieren wir gemeinsam die Prozesse mit dem größten Automatisierungspotenzial. Anschließend entwickeln, testen und implementieren wir passende KI-Lösungen – und optimieren sie danach laufend anhand echter Daten.</p>",
+        "cta_label": "",
+        "cta_url": ""
+      }
+    },
+    "benefits": {
+      "type": "benefits",
+      "blocks": {
+        "benefit-1": { "type": "benefit", "settings": { "icon": "clock", "title": "Bis zu 15 Std. pro Woche gespart", "text": "Durch automatisierte Routineaufgaben gewinnst du wertvolle Zeit zurück." } },
+        "benefit-2": { "type": "benefit", "settings": { "icon": "shield", "title": "Sicher & DSGVO-konform", "text": "Alle Automationen erfüllen europäische Datenschutzstandards." } },
+        "benefit-3": { "type": "benefit", "settings": { "icon": "automation", "title": "Individuell entwickelt", "text": "Keine Standardlösung von der Stange, sondern passgenau für dein Unternehmen." } }
+      },
+      "block_order": ["benefit-1", "benefit-2", "benefit-3"],
+      "settings": { "eyebrow": "Vorteile", "heading": "Warum sich KI-Automationen jetzt lohnen", "background": "bg-white" }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": { "heading": "Bereit, deine Prozesse zu automatisieren?", "primary_url": "/pages/kontakt" }
+    }
+  },
+  "order": ["header", "intro", "detail", "benefits", "cta-banner"]
+}

@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "Webseiten-Erstellung", "subheading": "Moderne, schnelle und conversion-starke Webseiten, die aus Besuchern Kunden machen." }
+    },
+    "intro": {
+      "type": "image-with-text",
+      "blocks": {
+        "b1": { "type": "bullet", "settings": { "text": "Individuelles Design in deinem Corporate Design" } },
+        "b2": { "type": "bullet", "settings": { "text": "Optimiert für Suchmaschinen (SEO) und Ladegeschwindigkeit" } },
+        "b3": { "type": "bullet", "settings": { "text": "Vollständig responsive für alle Endgeräte" } },
+        "b4": { "type": "bullet", "settings": { "text": "Klare Call-to-Actions für mehr Anfragen und Verkäufe" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "eyebrow": "Webseiten-Erstellung",
+        "heading": "Deine Webseite als stärkster Vertriebskanal",
+        "text": "<p>Wir gestalten und entwickeln professionelle Webseiten und Onlineshops, die nicht nur gut aussehen, sondern gezielt auf Leads und Verkäufe optimiert sind – schnell, sicher und vollständig responsive.</p>",
+        "cta_label": "Kostenlosen Website-Check anfragen",
+        "cta_url": "/pages/kontakt"
+      }
+    },
+    "detail": {
+      "type": "image-with-text",
+      "settings": {
+        "reverse": true,
+        "background": "bg-offwhite",
+        "eyebrow": "Unser Prozess",
+        "heading": "Von der Konzeption bis zum Launch",
+        "text": "<p>Wir starten mit einer Strategie- und Zielgruppenanalyse, entwickeln Design und Struktur, setzen die Seite technisch sauber um und begleiten dich auch nach dem Launch mit laufender Optimierung.</p>",
+        "cta_label": "",
+        "cta_url": ""
+      }
+    },
+    "benefits": {
+      "type": "benefits",
+      "blocks": {
+        "benefit-1": { "type": "benefit", "settings": { "icon": "web", "title": "Conversion-optimiert", "text": "Klare Struktur und Call-to-Actions führen Besucher gezielt zur Anfrage." } },
+        "benefit-2": { "type": "benefit", "settings": { "icon": "chart", "title": "SEO-Grundlagen inklusive", "text": "Saubere Struktur, Meta-Angaben und Ladezeiten für bessere Sichtbarkeit." } },
+        "benefit-3": { "type": "benefit", "settings": { "icon": "shield", "title": "Technisch zuverlässig", "text": "Modernste Technologie auf Basis von Shopify Online Store 2.0." } }
+      },
+      "block_order": ["benefit-1", "benefit-2", "benefit-3"],
+      "settings": { "eyebrow": "Vorteile", "heading": "Warum sich eine neue Webseite jetzt lohnt", "background": "bg-white" }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": { "heading": "Bereit für deine neue Webseite?", "primary_url": "/pages/kontakt" }
+    }
+  },
+  "order": ["header", "intro", "detail", "benefits", "cta-banner"]
+}

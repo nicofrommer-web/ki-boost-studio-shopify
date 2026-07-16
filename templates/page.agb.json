@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "Allgemeine Geschäftsbedingungen", "subheading": "Bedingungen für die Zusammenarbeit mit KI Boost Studio" }
+    },
+    "content": {
+      "type": "rich-text",
+      "blocks": {
+        "h1": { "type": "heading", "settings": { "heading": "1. Geltungsbereich" } },
+        "t1": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Diese Allgemeinen Geschäftsbedingungen (nachfolgend &bdquo;AGB&ldquo;) gelten für alle Verträge zwischen KI Boost Studio, [Firmenname, Adresse] (nachfolgend &bdquo;Anbieter&ldquo;), und seinen Kunden (nachfolgend &bdquo;Kunde&ldquo;) über Leistungen in den Bereichen KI-Automationen, Leadgenerierung, Social-Media-Content und Webseiten-Erstellung. Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, der Anbieter stimmt ihrer Geltung ausdrücklich schriftlich zu.</p>"
+          }
+        },
+        "h2": { "type": "heading", "settings": { "heading": "2. Vertragsschluss" } },
+        "t2": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Die Darstellung der Leistungen auf der Website stellt kein bindendes Angebot dar, sondern eine unverbindliche Aufforderung an den Kunden, ein Angebot abzugeben. Der Vertrag kommt zustande, sobald der Anbieter die Beauftragung des Kunden schriftlich (z. B. per E-Mail) bestätigt oder mit der Leistungserbringung beginnt.</p>"
+          }
+        },
+        "h3": { "type": "heading", "settings": { "heading": "3. Leistungsbeschreibung" } },
+        "t3": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Der genaue Leistungsumfang ergibt sich aus der jeweiligen Leistungsbeschreibung, dem gewählten Paket bzw. dem individuellen Angebot. Der Anbieter erbringt seine Leistungen nach dem aktuellen Stand der Technik und nach bestem Wissen und Gewissen. Eine Erfolgsgarantie (z. B. für bestimmte Umsatz- oder Leadzahlen) wird nicht geschuldet, sofern nicht ausdrücklich schriftlich vereinbart.</p>"
+          }
+        },
+        "h4": { "type": "heading", "settings": { "heading": "4. Preise und Zahlungsbedingungen" } },
+        "t4": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Es gelten die zum Zeitpunkt des Vertragsschlusses angegebenen Preise, zzgl. der gesetzlichen Umsatzsteuer. Rechnungen sind, sofern nicht anders vereinbart, innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug zur Zahlung fällig. Bei Zahlungsverzug ist der Anbieter berechtigt, Verzugszinsen gemäß den gesetzlichen Bestimmungen zu berechnen.</p>"
+          }
+        },
+        "h5": { "type": "heading", "settings": { "heading": "5. Laufzeit und Kündigung" } },
+        "t5": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Sofern nicht anders vereinbart, laufen Verträge über wiederkehrende Leistungen (Pakete) auf monatlicher Basis und können von beiden Parteien mit einer Frist von 30 Tagen zum Monatsende gekündigt werden. Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt.</p>"
+          }
+        },
+        "h6": { "type": "heading", "settings": { "heading": "6. Mitwirkungspflichten des Kunden" } },
+        "t6": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Der Kunde stellt dem Anbieter die für die Leistungserbringung erforderlichen Informationen, Zugänge, Materialien und Freigaben rechtzeitig zur Verfügung. Verzögerungen, die durch fehlende Mitwirkung des Kunden entstehen, gehen nicht zulasten des Anbieters.</p>"
+          }
+        },
+        "h7": { "type": "heading", "settings": { "heading": "7. Gewährleistung" } },
+        "t7": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Für Mängel der erbrachten Leistungen gelten die gesetzlichen Gewährleistungsvorschriften, soweit nachfolgend nichts Abweichendes geregelt ist. Der Kunde hat offensichtliche Mängel unverzüglich, spätestens jedoch innerhalb von 14 Tagen nach Erhalt der Leistung, schriftlich anzuzeigen.</p>"
+          }
+        },
+        "h8": { "type": "heading", "settings": { "heading": "8. Haftung" } },
+        "t8": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Der Anbieter haftet unbeschränkt für Vorsatz und grobe Fahrlässigkeit sowie nach Maßgabe des Produkthaftungsgesetzes. Für leichte Fahrlässigkeit haftet der Anbieter nur bei Verletzung einer wesentlichen Vertragspflicht (Kardinalpflicht), begrenzt auf den vertragstypischen, vorhersehbaren Schaden. Im Übrigen ist die Haftung ausgeschlossen.</p>"
+          }
+        },
+        "h9": { "type": "heading", "settings": { "heading": "9. Nutzungsrechte" } },
+        "t9": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Sofern im Rahmen der Leistungserbringung Werke (z. B. Texte, Bilder, Videos, Webseiten, Automationen) erstellt werden, erhält der Kunde nach vollständiger Bezahlung ein einfaches, zeitlich und räumlich unbeschränktes Nutzungsrecht für die vereinbarten Zwecke, sofern nicht ausdrücklich anders vereinbart.</p>"
+          }
+        },
+        "h10": { "type": "heading", "settings": { "heading": "10. Datenschutz" } },
+        "t10": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Die Verarbeitung personenbezogener Daten erfolgt im Einklang mit der DSGVO. Näheres regelt unsere <a href=\"/pages/datenschutz\">Datenschutzerklärung</a> sowie, soweit erforderlich, ein gesonderter Auftragsverarbeitungsvertrag zwischen den Parteien.</p>"
+          }
+        },
+        "h11": { "type": "heading", "settings": { "heading": "11. Schlussbestimmungen" } },
+        "t11": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Gerichtsstand für alle Streitigkeiten aus diesem Vertragsverhältnis ist, soweit gesetzlich zulässig, der Sitz des Anbieters. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>"
+          }
+        }
+      },
+      "block_order": ["h1", "t1", "h2", "t2", "h3", "t3", "h4", "t4", "h5", "t5", "h6", "t6", "h7", "t7", "h8", "t8", "h9", "t9", "h10", "t10", "h11", "t11"],
+      "settings": { "background": "bg-white" }
+    }
+  },
+  "order": ["header", "content"]
+}

@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "Kontakt", "subheading": "Wir freuen uns auf deine Nachricht – meld dich für ein kostenloses Erstgespräch." }
+    },
+    "contact": {
+      "type": "contact-form",
+      "settings": { "eyebrow": "Kontakt", "heading": "Lass uns über dein Projekt sprechen", "background": "bg-white" }
+    },
+    "trust-bar": {
+      "type": "trust-bar",
+      "blocks": {
+        "item-1": { "type": "item", "settings": { "text": "Antwort innerhalb von 24 Stunden" } },
+        "item-2": { "type": "item", "settings": { "text": "Kostenloses & unverbindliches Erstgespräch" } },
+        "item-3": { "type": "item", "settings": { "text": "DSGVO-konform" } }
+      },
+      "block_order": ["item-1", "item-2", "item-3"],
+      "settings": {}
+    }
+  },
+  "order": ["header", "contact", "trust-bar"]
+}

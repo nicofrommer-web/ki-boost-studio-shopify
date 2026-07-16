@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "header": {
+      "type": "page-header",
+      "settings": { "heading": "Leistungen", "subheading": "Vier starke Leistungsbereiche, die sich perfekt ergänzen – für mehr Effizienz, mehr Sichtbarkeit und mehr Umsatz." }
+    },
+    "services": {
+      "type": "services-overview",
+      "blocks": {
+        "service-1": { "type": "service", "settings": { "icon": "automation", "title": "KI-Automationen", "text": "Wir automatisieren wiederkehrende Aufgaben mit KI – von der Kundenkommunikation bis zur internen Prozessteuerung.", "link_label": "Mehr erfahren", "url": "/pages/ki-automationen" } },
+        "service-2": { "type": "service", "settings": { "icon": "leads", "title": "Leadgenerierung", "text": "Planbar neue Anfragen gewinnen statt auf Zufall zu hoffen – mit System, Funnel und klarer Strategie.", "link_label": "Mehr erfahren", "url": "/pages/leadgenerierung" } },
+        "service-3": { "type": "service", "settings": { "icon": "social", "title": "Social-Media-Content", "text": "Hochwertiger Content, der deine Marke sichtbar macht und deine Zielgruppe wirklich erreicht.", "link_label": "Mehr erfahren", "url": "/pages/social-media-content" } },
+        "service-4": { "type": "service", "settings": { "icon": "web", "title": "Webseiten-Erstellung", "text": "Moderne, schnelle und conversion-starke Webseiten, die aus Besuchern Kunden machen.", "link_label": "Mehr erfahren", "url": "/pages/webseiten-erstellung" } }
+      },
+      "block_order": ["service-1", "service-2", "service-3", "service-4"],
+      "settings": { "eyebrow": "Übersicht", "heading": "Unsere Leistungsbereiche", "background": "bg-white" }
+    },
+    "process-steps": {
+      "type": "process-steps",
+      "blocks": {
+        "step-1": { "type": "step", "settings": { "title": "Kostenloses Erstgespräch", "text": "Wir lernen dein Unternehmen kennen und analysieren deine Ausgangssituation und Ziele." } },
+        "step-2": { "type": "step", "settings": { "title": "Individuelles Konzept", "text": "Du erhältst eine maßgeschneiderte Strategie inklusive transparentem Angebot." } },
+        "step-3": { "type": "step", "settings": { "title": "Umsetzung & Betreuung", "text": "Wir setzen alles um und begleiten dich danach laufend mit Optimierungen." } }
+      },
+      "block_order": ["step-1", "step-2", "step-3"],
+      "settings": { "eyebrow": "So läuft es ab", "heading": "In 3 Schritten zu mehr Erfolg", "background": "bg-offwhite" }
+    },
+    "cta-banner": {
+      "type": "cta-banner",
+      "settings": { "primary_url": "/pages/kontakt" }
+    }
+  },
+  "order": ["header", "services", "process-steps", "cta-banner"]
+}
