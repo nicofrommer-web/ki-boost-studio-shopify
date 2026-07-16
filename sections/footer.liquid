@@ -1,0 +1,86 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand-title">KI Boost<span>.Studio</span></p>
+        <p style="max-width: 26rem; opacity: 0.7;">{{ section.settings.about_text }}</p>
+        <div class="social-icons">
+          {% if settings.social_instagram != blank %}
+            <a href="{{ settings.social_instagram }}" aria-label="Instagram" target="_blank" rel="noopener">{% render 'icon-instagram' %}</a>
+          {% endif %}
+          {% if settings.social_linkedin != blank %}
+            <a href="{{ settings.social_linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener">{% render 'icon-linkedin' %}</a>
+          {% endif %}
+          {% if settings.social_facebook != blank %}
+            <a href="{{ settings.social_facebook }}" aria-label="Facebook" target="_blank" rel="noopener">{% render 'icon-facebook' %}</a>
+          {% endif %}
+          {% if settings.social_youtube != blank %}
+            <a href="{{ settings.social_youtube }}" aria-label="YouTube" target="_blank" rel="noopener">{% render 'icon-youtube' %}</a>
+          {% endif %}
+          {% if settings.social_tiktok != blank %}
+            <a href="{{ settings.social_tiktok }}" aria-label="TikTok" target="_blank" rel="noopener">{% render 'icon-tiktok' %}</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div>
+        <p class="footer__col-title">Leistungen</p>
+        <ul class="footer__links">
+          <li><a href="/pages/ki-automationen">KI-Automationen</a></li>
+          <li><a href="/pages/leadgenerierung">Leadgenerierung</a></li>
+          <li><a href="/pages/social-media-content">Social-Media-Content</a></li>
+          <li><a href="/pages/webseiten-erstellung">Webseiten-Erstellung</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__col-title">Unternehmen</p>
+        <ul class="footer__links">
+          <li><a href="/pages/ueber-uns">Über uns</a></li>
+          <li><a href="/pages/preise">Preise</a></li>
+          <li><a href="/pages/faq">FAQ</a></li>
+          <li><a href="/pages/kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__col-title">Kontakt</p>
+        <ul class="footer__links">
+          {% if settings.contact_email != blank %}
+            <li><a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a></li>
+          {% endif %}
+          {% if settings.contact_phone != blank %}
+            <li><a href="tel:{{ settings.contact_phone | replace: ' ', '' }}">{{ settings.contact_phone }}</a></li>
+          {% endif %}
+          {% if settings.contact_address != blank %}
+            <li>{{ settings.contact_address }}</li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} KI Boost Studio. Alle Rechte vorbehalten.</p>
+      <ul class="footer__legal-links">
+        <li><a href="/pages/impressum">Impressum</a></li>
+        <li><a href="/pages/datenschutz">Datenschutz</a></li>
+        <li><a href="/pages/agb">AGB</a></li>
+        <li><a href="/pages/widerrufsbelehrung">Widerrufsbelehrung</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "about_text",
+      "label": "Kurzbeschreibung",
+      "default": "KI Boost Studio unterstützt Unternehmen mit smarten KI-Automationen, Leadgenerierung, Social-Media-Content und modernen Webseiten – für mehr Effizienz und mehr Umsatz."
+    }
+  ]
+}
+{% endschema %}

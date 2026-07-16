@@ -1,0 +1,117 @@
+<section class="section-padding {{ section.settings.background }}" id="ContactForm">
+  <div class="container">
+    <div class="contact-layout">
+      <div>
+        {% if section.settings.eyebrow != blank %}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="heading-xl">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <p style="opacity:0.75; margin-bottom: 2rem;">{{ section.settings.text }}</p>
+        {% endif %}
+
+        {% if settings.contact_email != blank %}
+          <div class="contact-info__item">
+            <span class="contact-info__icon">{% render 'icon-mail' %}</span>
+            <div>
+              <strong>E-Mail</strong><br>
+              <a href="mailto:{{ settings.contact_email }}">{{ settings.contact_email }}</a>
+            </div>
+          </div>
+        {% endif %}
+        {% if settings.contact_phone != blank %}
+          <div class="contact-info__item">
+            <span class="contact-info__icon">{% render 'icon-phone' %}</span>
+            <div>
+              <strong>Telefon</strong><br>
+              <a href="tel:{{ settings.contact_phone | replace: ' ', '' }}">{{ settings.contact_phone }}</a>
+            </div>
+          </div>
+        {% endif %}
+        {% if settings.contact_address != blank %}
+          <div class="contact-info__item">
+            <span class="contact-info__icon">{% render 'icon-pin' %}</span>
+            <div>
+              <strong>Adresse</strong><br>
+              {{ settings.contact_address }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <div>
+        {% form 'contact', id: 'ContactFormForm' %}
+          {% if form.posted_successfully? %}
+            <div class="form-message form-message--success">{{ 'contact.form.post_success' | t }}</div>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="form-message form-message--error">
+              {{ 'contact.form.error_heading' | t }}
+              <ul style="margin: 0.5em 0 0 1.25em;">
+                {% for field in form.errors %}
+                  <li>
+                    {% if field == 'form' %}
+                      {{ form.errors.messages[field] }}
+                    {% else %}
+                      {{ form.errors.translated_fields[field] | capitalize }} {{ form.errors.messages[field] }}
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          <div class="form-grid">
+            <div class="form-grid form-grid--split">
+              <div class="form-field">
+                <label for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+                <input type="text" id="ContactFormName" name="contact[name]" value="{{ form.name }}" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label for="ContactFormEmail">{{ 'contact.form.email' | t }} *</label>
+                <input type="email" id="ContactFormEmail" name="contact[email]" value="{{ form.email }}" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
+              <input type="tel" id="ContactFormPhone" name="contact[phone]" value="{{ form.phone }}" autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label for="ContactFormMessage">{{ 'contact.form.message' | t }} *</label>
+              <textarea id="ContactFormMessage" name="contact[body]" rows="5" required>{{ form.body }}</textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="button button--dark button--block" style="margin-top: 1.5rem;">
+            {{ 'contact.form.send' | t }}
+          </button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kontaktformular",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Hintergrund",
+      "options": [
+        { "value": "bg-white", "label": "Weiß" },
+        { "value": "bg-offwhite", "label": "Off-White" }
+      ],
+      "default": "bg-white"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Kicker-Text", "default": "Kontakt" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Lass uns über dein Projekt sprechen" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Schreib uns eine Nachricht – wir melden uns in der Regel innerhalb von 24 Stunden bei dir zurück." }
+  ],
+  "presets": [{ "name": "Kontaktformular" }]
+}
+{% endschema %}

@@ -1,0 +1,100 @@
+<header class="site-header" style="--logo-width: {{ settings.logo_width }}px;">
+  <div class="container site-header__inner">
+    <a href="{{ routes.root_url }}" class="site-header__logo">
+      {% if settings.logo != blank %}
+        <img
+          src="{{ settings.logo | image_url: width: 400 }}"
+          alt="{{ shop.name }}"
+          width="{{ settings.logo_width }}"
+          height="{{ settings.logo_width | divided_by: settings.logo.aspect_ratio | default: settings.logo_width }}"
+          loading="eager"
+        >
+      {% else %}
+        <span class="site-header__logo-text">KI Boost<span>.Studio</span></span>
+      {% endif %}
+    </a>
+
+    <nav aria-label="Hauptnavigation">
+      <ul class="site-nav">
+        {% for block in section.blocks %}
+          {% if block.type == 'link' %}
+            <li {{ block.shopify_attributes }}>
+              <a class="site-nav__link" href="{{ block.settings.url }}">{{ block.settings.label }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      {% if section.settings.cta_label != blank %}
+        <a href="{{ section.settings.cta_url }}" class="button button--primary">{{ section.settings.cta_label }}</a>
+      {% endif %}
+
+      <button type="button" class="mobile-nav-toggle" data-mobile-nav-toggle aria-expanded="false" aria-controls="MobileNav" aria-label="{{ 'general.accessibility.menu' | t }}">
+        {% render 'icon-menu' %}
+      </button>
+    </div>
+  </div>
+
+  <div id="MobileNav" class="mobile-nav" data-mobile-nav hidden>
+    <ul class="mobile-nav__list">
+      {% for block in section.blocks %}
+        {% if block.type == 'link' %}
+          <li><a href="{{ block.settings.url }}">{{ block.settings.label }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if section.settings.cta_label != blank %}
+        <li><a href="{{ section.settings.cta_url }}" style="color: var(--color-gold);">{{ section.settings.cta_label }}</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA-Button Text",
+      "default": "Kostenloses Erstgespräch"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA-Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Navigationslink",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Linktext",
+          "default": "Menüpunkt"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "link", "settings": { "label": "Startseite", "url": "/" } },
+      { "type": "link", "settings": { "label": "Leistungen", "url": "/pages/leistungen" } },
+      { "type": "link", "settings": { "label": "Preise", "url": "/pages/preise" } },
+      { "type": "link", "settings": { "label": "Über uns", "url": "/pages/ueber-uns" } },
+      { "type": "link", "settings": { "label": "FAQ", "url": "/pages/faq" } },
+      { "type": "link", "settings": { "label": "Kontakt", "url": "/pages/kontakt" } }
+    ]
+  }
+}
+{% endschema %}

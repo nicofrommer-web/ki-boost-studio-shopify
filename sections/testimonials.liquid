@@ -1,0 +1,86 @@
+<section class="section-padding {{ section.settings.background }}">
+  <div class="container">
+    <div class="section-heading {% if section.settings.center_heading %}text-center{% endif %}">
+      {% if section.settings.eyebrow != blank %}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="heading-xl">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="section-heading__lede">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    <div class="grid grid--3">
+      {% for block in section.blocks %}
+        {% if block.type == 'testimonial' %}
+          <div class="testimonial-card" {{ block.shopify_attributes }}>
+            <div class="testimonial-card__stars">
+              {% for i in (1..5) %}
+                {% if i <= block.settings.rating %}{% render 'icon-star' %}{% endif %}
+              {% endfor %}
+            </div>
+            <p class="testimonial-card__quote">&bdquo;{{ block.settings.quote }}&ldquo;</p>
+            <div class="testimonial-card__author">
+              {% if block.settings.avatar != blank %}
+                <img class="testimonial-card__avatar" src="{{ block.settings.avatar | image_url: width: 96 }}" alt="{{ block.settings.name }}" width="48" height="48" loading="lazy">
+              {% else %}
+                <span class="testimonial-card__avatar"></span>
+              {% endif %}
+              <div>
+                <p class="testimonial-card__name">{{ block.settings.name }}</p>
+                <p class="testimonial-card__role">{{ block.settings.role }}</p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kundenstimmen",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Hintergrund",
+      "options": [
+        { "value": "bg-white", "label": "Weiß" },
+        { "value": "bg-offwhite", "label": "Off-White" }
+      ],
+      "default": "bg-white"
+    },
+    { "type": "checkbox", "id": "center_heading", "label": "Überschrift zentrieren", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Kicker-Text", "default": "Kundenstimmen" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Das sagen unsere Kunden" },
+    { "type": "textarea", "id": "subheading", "label": "Untertitel", "default": "" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Kundenstimme",
+      "settings": [
+        { "type": "image_picker", "id": "avatar", "label": "Foto" },
+        { "type": "textarea", "id": "quote", "label": "Zitat", "default": "Die Zusammenarbeit mit KI Boost Studio hat unsere Prozesse spürbar effizienter gemacht." },
+        { "type": "text", "id": "name", "label": "Name", "default": "Julia Beckmann" },
+        { "type": "text", "id": "role", "label": "Position / Unternehmen", "default": "Geschäftsführerin, Beckmann GmbH" },
+        { "type": "range", "id": "rating", "label": "Bewertung", "min": 1, "max": 5, "step": 1, "default": 5 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kundenstimmen",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "Die Zusammenarbeit mit KI Boost Studio hat unsere Prozesse spürbar effizienter gemacht. Klare Kommunikation, schnelle Umsetzung.", "name": "Julia Beckmann", "role": "Geschäftsführerin, Beckmann GmbH", "rating": 5 } },
+        { "type": "testimonial", "settings": { "quote": "Innerhalb weniger Wochen hatten wir deutlich mehr qualifizierte Anfragen. Absolute Empfehlung!", "name": "Markus Weiler", "role": "Inhaber, Weiler Handwerksbetrieb", "rating": 5 } },
+        { "type": "testimonial", "settings": { "quote": "Endlich eine Agentur, die KI wirklich versteht und verständlich erklärt. Top Betreuung!", "name": "Sarah Nguyen", "role": "Marketingleitung, NovaCare", "rating": 5 } }
+      ]
+    }
+  ]
+}
+{% endschema %}

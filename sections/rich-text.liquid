@@ -1,0 +1,66 @@
+<section class="section-padding {{ section.settings.background }} {% unless section.settings.narrow %}section-padding--tight{% endunless %}">
+  <div class="container">
+    {% if section.settings.eyebrow != blank or section.settings.heading != blank %}
+      <div class="section-heading">
+        {% if section.settings.eyebrow != blank %}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h1 class="heading-xl">{{ section.settings.heading }}</h1>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="rich-text {% unless section.settings.narrow %}rich-text--wide{% endunless %}">
+      {% for block in section.blocks %}
+        <div {{ block.shopify_attributes }}>
+          {% case block.type %}
+            {% when 'heading' %}
+              <h2>{{ block.settings.heading }}</h2>
+            {% when 'text' %}
+              {{ block.settings.content }}
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Rich Text",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Hintergrund",
+      "options": [
+        { "value": "bg-white", "label": "Weiß" },
+        { "value": "bg-offwhite", "label": "Off-White" }
+      ],
+      "default": "bg-white"
+    },
+    { "type": "checkbox", "id": "narrow", "label": "Schmale Spalte (für Fließtext)", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Kicker-Text" },
+    { "type": "text", "id": "heading", "label": "Überschrift (H1)" }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Zwischenüberschrift",
+      "settings": [{ "type": "text", "id": "heading", "label": "Text", "default": "Zwischenüberschrift" }]
+    },
+    {
+      "type": "text",
+      "name": "Textabschnitt",
+      "settings": [{ "type": "richtext", "id": "content", "label": "Inhalt", "default": "<p>Text hier eingeben.</p>" }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich Text",
+      "blocks": [{ "type": "text" }]
+    }
+  ]
+}
+{% endschema %}

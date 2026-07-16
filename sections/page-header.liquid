@@ -1,0 +1,25 @@
+<div class="page-header">
+  <div class="container">
+    {% if section.settings.breadcrumb %}
+      <p class="breadcrumb">
+        <a href="{{ routes.root_url }}" style="color: inherit;">Startseite</a> / <span>{{ section.settings.heading }}</span>
+      </p>
+    {% endif %}
+    <h1 class="page-header__title">{{ section.settings.heading }}</h1>
+    {% if section.settings.subheading != blank %}
+      <p class="page-header__subtitle">{{ section.settings.subheading }}</p>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Seiten-Header",
+  "settings": [
+    { "type": "checkbox", "id": "breadcrumb", "label": "Breadcrumb anzeigen", "default": true },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Seitentitel" },
+    { "type": "textarea", "id": "subheading", "label": "Untertitel" }
+  ],
+  "presets": [{ "name": "Seiten-Header" }]
+}
+{% endschema %}

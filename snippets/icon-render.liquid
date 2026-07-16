@@ -1,0 +1,17 @@
+{%- doc -%}
+  Rendert ein Icon-Snippet anhand eines Icon-Namens.
+  Parameter: icon {String}
+{%- enddoc -%}
+{%- case icon -%}
+  {%- when 'automation' -%}{% render 'icon-automation' %}
+  {%- when 'leads' -%}{% render 'icon-leads' %}
+  {%- when 'social' -%}{% render 'icon-social' %}
+  {%- when 'web' -%}{% render 'icon-web' %}
+  {%- when 'chart' -%}{% render 'icon-chart' %}
+  {%- when 'shield' -%}{% render 'icon-shield' %}
+  {%- when 'clock' -%}{% render 'icon-clock' %}
+  {%- when 'heart' -%}{% render 'icon-heart' %}
+  {%- when 'check' -%}{% render 'icon-check' %}
+  {%- when 'star' -%}{% render 'icon-star' %}
+  {%- else -%}{% render 'icon-check' %}
+{%- endcase -%}

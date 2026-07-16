@@ -1,0 +1,123 @@
+<section class="section-padding {{ section.settings.background }}">
+  <div class="container">
+    <div class="section-heading {% if section.settings.center_heading %}text-center{% endif %}">
+      {% if section.settings.eyebrow != blank %}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="heading-xl">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="section-heading__lede">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    <div class="pricing-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'plan' %}
+          <div class="pricing-card {% if block.settings.featured %}pricing-card--featured{% endif %}" {{ block.shopify_attributes }}>
+            {% if block.settings.badge != blank %}
+              <span class="pricing-card__badge">{{ block.settings.badge }}</span>
+            {% endif %}
+            <h3 class="pricing-card__name">{{ block.settings.name }}</h3>
+            <p class="pricing-card__text">{{ block.settings.description }}</p>
+            <span class="pricing-card__price">{{ block.settings.price }}</span>
+            <span class="pricing-card__period">{{ block.settings.period }}</span>
+            <ul class="pricing-card__features">
+              {% assign features = block.settings.features | newline_to_br | split: '<br />' %}
+              {% for feature in features %}
+                {% if feature != blank %}
+                  <li>{% render 'icon-check' %} <span>{{ feature | strip }}</span></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+            <a href="{{ block.settings.cta_url }}" class="button button--block {% if block.settings.featured %}button--primary{% else %}button--dark{% endif %}">
+              {{ block.settings.cta_label | default: 'Jetzt anfragen' }}
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Preisangebote",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Hintergrund",
+      "options": [
+        { "value": "bg-white", "label": "Weiß" },
+        { "value": "bg-offwhite", "label": "Off-White" }
+      ],
+      "default": "bg-offwhite"
+    },
+    { "type": "checkbox", "id": "center_heading", "label": "Überschrift zentrieren", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Kicker-Text", "default": "Preise" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Transparente Pakete für jedes Wachstumsziel" },
+    { "type": "textarea", "id": "subheading", "label": "Untertitel", "default": "Wähle das passende Paket – monatlich kündbar, ohne versteckte Kosten." }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "Paket",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Starter" },
+        { "type": "text", "id": "badge", "label": "Badge (optional)", "default": "" },
+        { "type": "textarea", "id": "description", "label": "Kurzbeschreibung", "default": "Für den Einstieg in KI und Automatisierung." },
+        { "type": "text", "id": "price", "label": "Preis", "default": "ab 490 €" },
+        { "type": "text", "id": "period", "label": "Zeitraum", "default": "pro Monat, netto" },
+        { "type": "textarea", "id": "features", "label": "Leistungen (eine pro Zeile)", "default": "1 KI-Automation\nSocial-Media-Grundpaket\nE-Mail-Support\nMonatliches Reporting" },
+        { "type": "text", "id": "cta_label", "label": "Button-Text", "default": "Jetzt anfragen" },
+        { "type": "url", "id": "cta_url", "label": "Button-Link" },
+        { "type": "checkbox", "id": "featured", "label": "Hervorgehoben darstellen", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Preisangebote",
+      "blocks": [
+        {
+          "type": "plan",
+          "settings": {
+            "name": "Starter",
+            "description": "Für den Einstieg in KI und Automatisierung.",
+            "price": "ab 490 €",
+            "period": "pro Monat, netto",
+            "features": "1 KI-Automation\nSocial-Media-Grundpaket\nE-Mail-Support\nMonatliches Reporting",
+            "cta_label": "Jetzt anfragen"
+          }
+        },
+        {
+          "type": "plan",
+          "settings": {
+            "name": "Growth",
+            "badge": "Beliebt",
+            "description": "Unser meistgebuchtes Paket für nachhaltiges Wachstum.",
+            "price": "ab 990 €",
+            "period": "pro Monat, netto",
+            "features": "Bis zu 3 KI-Automationen\nLeadgenerierung inklusive\nSocial-Media-Content-Paket\nPersönlicher Ansprechpartner\nWöchentliches Reporting",
+            "cta_label": "Jetzt anfragen",
+            "featured": true
+          }
+        },
+        {
+          "type": "plan",
+          "settings": {
+            "name": "Premium",
+            "description": "Die Rundum-Lösung inklusive Webseiten-Erstellung.",
+            "price": "auf Anfrage",
+            "period": "individuelles Angebot",
+            "features": "Unlimitierte KI-Automationen\nLeadgenerierung & Funnel\nSocial-Media-Content-Paket\nWebseiten-Erstellung & Pflege\nDedizierter Ansprechpartner",
+            "cta_label": "Individuelles Angebot anfragen"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

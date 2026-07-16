@@ -1,0 +1,134 @@
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="hero__grid">
+      <div>
+        {% if section.settings.eyebrow != blank %}
+          <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+        {% endif %}
+
+        <h1 class="hero__title">
+          {{ section.settings.heading_prefix }}
+          {%- if section.settings.heading_highlight != blank %} <em>{{ section.settings.heading_highlight }}</em>{% endif %}
+        </h1>
+
+        {% if section.settings.subheading != blank %}
+          <p class="hero__subtitle">{{ section.settings.subheading }}</p>
+        {% endif %}
+
+        <div class="hero__actions">
+          {% if section.settings.primary_cta_label != blank %}
+            <a href="{{ section.settings.primary_cta_url }}" class="button button--primary">{{ section.settings.primary_cta_label }}</a>
+          {% endif %}
+          {% if section.settings.secondary_cta_label != blank %}
+            <a href="{{ section.settings.secondary_cta_url }}" class="button button--outline">{{ section.settings.secondary_cta_label }}</a>
+          {% endif %}
+        </div>
+
+        {% if section.blocks.size > 0 %}
+          <div class="hero__stats">
+            {% for block in section.blocks %}
+              {% if block.type == 'stat' %}
+                <div {{ block.shopify_attributes }}>
+                  <span class="hero__stat-value">{{ block.settings.value }}</span>
+                  <span class="hero__stat-label">{{ block.settings.label }}</span>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="hero__media">
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | image_url: width: 1000 }}"
+            alt="{{ section.settings.image.alt | default: 'KI Boost Studio' }}"
+            loading="eager"
+            width="1000"
+            height="{{ 1000 | divided_by: section.settings.image.aspect_ratio }}"
+          >
+        {% endif %}
+        <div class="hero__media-frame"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Kicker-Text",
+      "default": "KI Boost Studio"
+    },
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "Überschrift",
+      "default": "Mehr Effizienz, mehr Leads,"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Überschrift (Gold-Akzent)",
+      "default": "mehr Wachstum."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Untertitel",
+      "default": "Wir automatisieren deine Prozesse mit KI, generieren planbar neue Leads und bauen dir eine Webseite, die verkauft – aus einer Hand."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_label",
+      "label": "Primärer Button Text",
+      "default": "Kostenloses Erstgespräch sichern"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_url",
+      "label": "Primärer Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_label",
+      "label": "Sekundärer Button Text",
+      "default": "Leistungen entdecken"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_url",
+      "label": "Sekundärer Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Bild"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Kennzahl",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Wert", "default": "120+" },
+        { "type": "text", "id": "label", "label": "Beschriftung", "default": "Projekte umgesetzt" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "120+", "label": "Projekte umgesetzt" } },
+        { "type": "stat", "settings": { "value": "98%", "label": "Kundenzufriedenheit" } },
+        { "type": "stat", "settings": { "value": "24/7", "label": "KI im Einsatz" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
