@@ -1,0 +1,48 @@
+{%- comment -%} SEO & Open Graph Meta-Tags {%- endcomment -%}
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:type" content="website">
+{%- if page_description -%}
+  <meta property="og:description" content="{{ page_description | escape }}">
+{%- endif -%}
+
+{%- if page_image -%}
+  <meta property="og:image" content="http:{{ page_image | image_url: width: 1200 }}">
+  <meta property="og:image:secure_url" content="https:{{ page_image | image_url: width: 1200 }}">
+  <meta property="og:image:width" content="1200">
+{%- elsif settings.logo -%}
+  <meta property="og:image" content="http:{{ settings.logo | image_url: width: 1200 }}">
+  <meta property="og:image:secure_url" content="https:{{ settings.logo | image_url: width: 1200 }}">
+{%- endif -%}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title }}">
+{%- if page_description -%}
+  <meta name="twitter:description" content="{{ page_description | escape }}">
+{%- endif -%}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": {{ request.origin | append: page.url | default: request.origin | json }},
+    {%- if settings.logo %}
+    "logo": {{ settings.logo | image_url: width: 600 | prepend: "https:" | json }},
+    {%- endif %}
+    {%- if settings.contact_email %}
+    "email": {{ settings.contact_email | json }},
+    {%- endif %}
+    {%- if settings.contact_phone %}
+    "telephone": {{ settings.contact_phone | json }},
+    {%- endif %}
+    "sameAs": [
+      {%- if settings.social_instagram %}{{ settings.social_instagram | json }},{% endif %}
+      {%- if settings.social_linkedin %}{{ settings.social_linkedin | json }},{% endif %}
+      {%- if settings.social_facebook %}{{ settings.social_facebook | json }},{% endif %}
+      {%- if settings.social_youtube %}{{ settings.social_youtube | json }},{% endif %}
+      {%- if settings.social_tiktok %}{{ settings.social_tiktok | json }}{% endif %}
+    ]
+  }
+</script>

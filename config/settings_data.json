@@ -1,0 +1,18 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "logo_width": 150,
+      "color_black": "#0B0B0C",
+      "color_ink": "#181818",
+      "color_white": "#FFFFFF",
+      "color_offwhite": "#F6F4EF",
+      "color_gold": "#C6A15B",
+      "color_gold_light": "#E8D6AE",
+      "heading_font": "playfair_display_n7",
+      "body_font": "assistant_n4",
+      "page_width": 1280,
+      "contact_email": "hallo@ki-boost-studio.de"
+    }
+  }
+}

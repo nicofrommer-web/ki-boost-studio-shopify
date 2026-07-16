@@ -1,0 +1,12 @@
+{
+  "name": "Footer-Gruppe",
+  "sections": {
+    "newsletter": {
+      "type": "newsletter"
+    },
+    "footer": {
+      "type": "footer"
+    }
+  },
+  "order": ["newsletter", "footer"]
+}
