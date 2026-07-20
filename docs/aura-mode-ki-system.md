@@ -628,3 +628,85 @@ Variablen (vom n8n-Workflow dynamisch befüllt):
    `{{discount_code}}` in Vorlage einsetzen.
 8. **Bei Abbruchbedingung erfüllt (Kauf erfolgt):** Sequenz beenden, Data-Store-Eintrag
    `cart_token:completed` setzen, kein weiterer Versand.
+
+### 4.8 Schritt-für-Schritt: Webhook-Endpoints mit Make.com/n8n verknüpfen
+
+Diese Anleitung verbindet die Shopify-Webhooks aus 4.3 konkret mit einem
+Make.com-Szenario oder einem n8n-Workflow, HMAC-geprüft und idempotent.
+
+**Variante A — Make.com**
+
+1. **Szenario anlegen:** Neues Szenario erstellen, als ersten Baustein das Modul
+   „Webhooks → Custom webhook" wählen → „Add" → Namen vergeben (z. B. `aura-mode-carts-update`).
+   Make generiert eine eindeutige Webhook-URL (`https://hook.eu2.make.com/...`).
+2. **Rohdaten aktivieren:** Im Webhook-Modul unter „Show advanced settings" die Option
+   für den ungeparsten Request-Body aktivieren (Data-Structure zunächst leer lassen,
+   damit die Payload roh im Bundle verfügbar bleibt, bevor 4.4 sie verifiziert).
+3. **Webhook-URL in Shopify eintragen:**
+   Shopify-Adminbereich → **Einstellungen → Benachrichtigungen → Webhooks →
+   Webhook erstellen** → Ereignis wählen (z. B. `Warenkorbaktualisierung` /
+   `carts/update`) → Format `JSON` → die in Schritt 1 kopierte Make-URL einfügen → Speichern.
+   Für die übrigen Topics aus 4.3 (`orders/create`, `orders/paid`, `customers/create`,
+   `inventory_levels/update`, `app/uninstalled`) denselben Schritt wiederholen — entweder
+   mit eigenen Custom-Webhook-Modulen pro Topic oder einem gemeinsamen Router-Modul,
+   das nach `X-Shopify-Topic` verzweigt.
+4. **HMAC-Verifikation einbauen:** Direkt nach dem Webhook-Modul ein „Crypto → Create
+   HMAC"-Modul einfügen: Algorithmus `SHA256`, Secret = das Webhook-Secret aus dem
+   Shopify-Adminbereich (**Einstellungen → Apps und Vertriebskanäle → App-Entwicklung**,
+   Feld „Webhook-Signaturschlüssel"), Eingabe = der rohe Request-Body. Ergebnis Base64-
+   kodieren und per „Text → Compare"- oder Router-Filter gegen den Header
+   `X-Shopify-Hmac-Sha256` aus dem Webhook-Bundle prüfen. Bei Nichtübereinstimmung: Szenario
+   über einen Filter am Router-Zweig abbrechen (kein Weiterverarbeiten), siehe Logik in 4.4.
+5. **Idempotenz-Check einbauen:** Data Store „webhook-dedupe" anlegen (Make → **Data
+   stores → Add data store**). Direkt nach der HMAC-Prüfung ein „Data store → Get a
+   record"-Modul mit Key = Header `X-Shopify-Webhook-Id`. Ist bereits ein Datensatz
+   vorhanden → Filter stoppt das Szenario (No-Op). Sonst „Add/replace a record" mit
+   TTL 14 Tage setzen (siehe 4.5).
+6. **Fachliche Logik anschließen:** Ab hier den Rest des Referenz-Szenarios aus 4.7
+   verdrahten (Segment laden, Warten-Module, Klaviyo-/WhatsApp-Versand-Module,
+   Discount-Code-Erstellung via HTTP-Modul gegen die Admin-API aus 4.6).
+7. **Testen:** In Shopify beim jeweiligen Webhook-Eintrag auf „Test senden" klicken →
+   im Make-Szenario-Editor sollte der Testlauf als erfolgreicher Bundle-Durchlauf
+   erscheinen. Danach das Szenario aktivieren (Schalter oben rechts).
+
+**Variante B — n8n**
+
+1. **Workflow anlegen:** Neuen Workflow erstellen, als ersten Node einen **Webhook**-Node
+   hinzufügen. HTTP-Methode `POST`, Pfad frei wählbar (z. B. `/aura-mode/carts-update`).
+   Unter „Respond" auf „Using 'Respond to Webhook' Node" stellen, damit erst nach
+   erfolgreicher HMAC-Prüfung mit `200` geantwortet wird.
+   **Wichtig:** Unter den Node-Optionen „Raw Body" aktivieren — sonst steht der
+   unveränderte Byte-Body für die HMAC-Prüfung nicht mehr zur Verfügung.
+2. **Webhook-URL kopieren:** n8n zeigt eine Test- und eine Produktions-URL
+   (`https://<n8n-instanz>/webhook/aura-mode/carts-update`) an. Für den Produktivbetrieb
+   die Produktions-URL verwenden.
+3. **Webhook-URL in Shopify eintragen:** Wie bei Variante A, Schritt 3 — die n8n-URL
+   im Shopify-Adminbereich unter **Einstellungen → Benachrichtigungen → Webhooks**
+   pro benötigtem Topic hinterlegen (oder zentral per Admin-API-Mutation
+   `webhookSubscriptionCreate`, falls mehrere Shops automatisiert angebunden werden).
+4. **HMAC-Verifikation einbauen:** Einen **Code**-Node (JavaScript) direkt nach dem
+   Webhook-Node einfügen und die Referenzfunktion `verifyShopifyWebhook` aus 4.4
+   verwenden, mit dem Raw Body aus `$input` und dem Header
+   `x-shopify-hmac-sha256`. Das Webhook-Secret als n8n-Credential vom Typ
+   „Header Auth" oder als Umgebungsvariable (`SHOPIFY_WEBHOOK_SECRET`) hinterlegen,
+   nicht hart codieren. Bei ungültiger Signatur: **IF**-Node verzweigt auf einen
+   „Respond to Webhook"-Node mit Status `401` und beendet den Workflow.
+5. **Idempotenz-Check einbauen:** Node **n8n Data Table** (oder alternativ Redis/Postgres-
+   Node, falls bereits im Stack vorhanden) mit Key = Header `X-Shopify-Webhook-Id`.
+   Existiert der Eintrag bereits → **IF**-Node beendet den Workflow ohne weitere
+   Verarbeitung. Sonst Eintrag mit Zeitstempel schreiben (TTL/Bereinigung 14 Tage
+   z. B. per täglichem Cron-Workflow, der abgelaufene Einträge löscht).
+6. **Fachliche Logik anschließen:** Ab hier das Referenz-Szenario aus 4.7 als
+   n8n-Nodes abbilden (HTTP-Request-Nodes gegen die Shopify Admin API für
+   Kund:innen-/Segmentdaten, **Wait**-Node für die Cart-Recovery-Stufen, HTTP-Request-
+   oder native Nodes für Klaviyo/WhatsApp-Business-API-Versand, HTTP-Request-Node für
+   `discountCodeBasicCreate` aus 4.6).
+7. **Testen & aktivieren:** Workflow speichern, über „Listen for Test Event" +
+   Shopifys „Test senden" einmal end-to-end prüfen, danach den Workflow rechts oben
+   auf **Active** stellen.
+
+**Gemeinsamer Hinweis für beide Varianten:** Die Webhook-URL (Make oder n8n) ist ein
+Geheimnis auf Zeit — sie sollte nicht öffentlich geteilt werden, auch wenn die HMAC-
+Prüfung nachgelagert vor gefälschten Payloads schützt. Bei Verdacht auf Kompromittierung
+den Webhook in Shopify löschen, in Make/n8n eine neue URL generieren (Szenario/Workflow-
+ID ändert sich dabei) und den Webhook in Shopify mit der neuen URL neu anlegen.

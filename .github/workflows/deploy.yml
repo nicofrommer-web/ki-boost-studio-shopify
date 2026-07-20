@@ -1,0 +1,91 @@
+name: Build, Check & Deploy (Aura Mode Frontend)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
+
+jobs:
+  build-and-check:
+    name: Build & Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Vite production build)
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -f dist/index.html || (echo "dist/index.html missing – build did not produce SPA entry point" && exit 1)
+          test -d dist/assets || (echo "dist/assets missing – build did not produce bundled assets" && exit 1)
+          echo "Build output verified."
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aura-mode-dist
+          path: dist
+          retention-days: 7
+
+  deploy:
+    name: Deploy to Vercel
+    needs: build-and-check
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel project settings
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Build via Vercel
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Deploy prebuilt output to Vercel
+        id: deploy
+        run: |
+          url=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+# Erforderliche Repository-Secrets (Settings → Secrets and variables → Actions):
+#   VERCEL_TOKEN       – Vercel Account/Team-Token (https://vercel.com/account/tokens)
+#   VERCEL_ORG_ID      – aus `vercel link` bzw. .vercel/project.json (orgId)
+#   VERCEL_PROJECT_ID  – aus `vercel link` bzw. .vercel/project.json (projectId)
+# Ohne diese drei Secrets läuft der Build-and-Check-Job erfolgreich durch,
+# der Deploy-Job schlägt jedoch fehl, bis sie gesetzt sind.
