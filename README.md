@@ -64,3 +64,28 @@ Die FAQ-Sektion (`sections/faq.liquid`) basiert auf dem mitgelieferten `Accordio
 ## Standard-Shopify-Funktionalität
 
 Neben den 14 Marketing-Seiten enthält das Theme alle für ein installierbares Shopify-Theme benötigten Standardvorlagen (Produkt, Kollektion, Warenkorb, Suche, Blog, Artikel, 404, Passwort-Seite, Kundenkonto) in einheitlichem Design – auch wenn KI Boost Studio primär als Dienstleistungs-Website genutzt wird.
+
+## Aura Mode — Headless-Frontend-Prototyp & KI-System
+
+Zusätzlich zum Liquid-Theme enthält das Repository einen eigenständigen, lauffähigen
+React/Tailwind-Prototyp für den Beispiel-Shop **Aura Mode** (Batch #04, Japandi-Ästhetik)
+inklusive der zugehörigen KI-Backend-Dokumentation:
+
+- **Komponente:** `src/components/aura-mode-shop.jsx` — Hero, 5er-Produktgrid mit
+  Quick-View/Swatches/Urgency-Badges, „Complete the Look“, Cart-Slide-over mit
+  Gratisversand-Fortschrittsbalken (150 €-Ziel) und One-Click-Upsells, Testimonial-Slider,
+  Trust-Badges.
+- **Lokal starten:**
+  ```
+  npm install
+  npm run dev
+  ```
+  (Vite + Tailwind-Setup: `vite.config.js`, `tailwind.config.js`, `src/main.jsx`, `src/App.jsx`.)
+- **KI-/Automations-Doku:** [`docs/aura-mode-ki-system.md`](docs/aura-mode-ki-system.md) —
+  KI-Concierge-Prompt mit Guardrails & JSON-Output (Phase 2), 3-stufige Cart-Recovery
+  für E-Mail/WhatsApp, Content-Agent-Prompt (AIDA/PAS) und Midjourney-v6-Prompts (Phase 3),
+  sowie Headless-Architektur mit Storefront API, Webhooks, HMAC-Validierung, Idempotenz-Keys
+  und Einmal-Rabattcodes (Phase 4).
+
+Dieser Prototyp ist unabhängig vom Liquid-Theme und dient als Referenzimplementierung für
+ein headless Aura-Mode-Frontend; er verändert keine bestehenden Theme-Dateien.
