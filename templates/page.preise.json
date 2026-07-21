@@ -14,6 +14,18 @@
       "block_order": ["plan-1", "plan-2", "plan-3"],
       "settings": { "eyebrow": "Unsere Pakete", "heading": "Wähle das passende Paket für dein Unternehmen", "background": "bg-white" }
     },
+    "trust-bar": {
+      "type": "trust-bar",
+      "blocks": {
+        "item-1": { "type": "item", "settings": { "text": "Made in Germany" } },
+        "item-2": { "type": "item", "settings": { "text": "DSGVO-konform" } },
+        "item-3": { "type": "item", "settings": { "text": "Persönliche Betreuung" } },
+        "item-4": { "type": "item", "settings": { "text": "Erste Ergebnisse in 30 Tagen" } },
+        "item-5": { "type": "item", "settings": { "text": "Monatlich kündbar" } }
+      },
+      "block_order": ["item-1", "item-2", "item-3", "item-4", "item-5"],
+      "settings": {}
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -30,5 +42,5 @@
       "settings": { "heading": "Noch unsicher, welches Paket passt?", "text": "Vereinbare ein kostenloses Erstgespräch – wir beraten dich unverbindlich zum passenden Paket.", "primary_url": "/pages/kontakt" }
     }
   },
-  "order": ["header", "pricing", "faq", "cta-banner"]
+  "order": ["header", "pricing", "trust-bar", "faq", "cta-banner"]
 }

@@ -64,6 +64,10 @@
             </div>
           {% endif %}
 
+          <div id="ContactFormPackageNotice" class="form-message form-message--success" style="display:none; margin-bottom: 1.25rem;">
+            Du interessierst dich für das Paket <strong id="ContactFormPackageName"></strong> – wir gehen bei unserer Antwort direkt darauf ein.
+          </div>
+
           <div class="form-grid">
             <div class="form-grid form-grid--split">
               <div class="form-field">
@@ -83,6 +87,7 @@
               <label for="ContactFormMessage">{{ 'contact.form.message' | t }} *</label>
               <textarea id="ContactFormMessage" name="contact[body]" rows="5" required>{{ form.body }}</textarea>
             </div>
+            <input type="hidden" id="ContactFormPackageField" name="contact[Interessiertes Paket]" value="">
           </div>
 
           <button type="submit" class="button button--dark button--block" style="margin-top: 1.5rem;">
@@ -92,6 +97,26 @@
       </div>
     </div>
   </div>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var paket = params.get('paket');
+      if (!paket) return;
+
+      var field = document.getElementById('ContactFormPackageField');
+      var notice = document.getElementById('ContactFormPackageNotice');
+      var nameEl = document.getElementById('ContactFormPackageName');
+      var messageEl = document.getElementById('ContactFormMessage');
+
+      if (field) field.value = paket;
+      if (nameEl) nameEl.textContent = paket;
+      if (notice) notice.style.display = 'block';
+      if (messageEl && messageEl.value.trim() === '') {
+        messageEl.value = 'Hallo, ich interessiere mich für das Paket "' + paket + '" und würde gerne mehr erfahren.';
+      }
+    })();
+  </script>
 </section>
 
 {% schema %}

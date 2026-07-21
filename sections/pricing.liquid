@@ -31,9 +31,15 @@
                 {% endif %}
               {% endfor %}
             </ul>
-            <a href="{{ block.settings.cta_url }}" class="button button--block {% if block.settings.featured %}button--primary{% else %}button--dark{% endif %}">
+            <a
+              href="{{ block.settings.cta_url }}{% if block.settings.cta_url contains '?' %}&{% else %}?{% endif %}paket={{ block.settings.name | url_encode }}"
+              class="button button--block {% if block.settings.featured %}button--primary{% else %}button--dark{% endif %}"
+            >
               {{ block.settings.cta_label | default: 'Jetzt anfragen' }}
             </a>
+            <p style="text-align:center; font-size:0.8rem; opacity:0.65; margin-top:0.75rem;">
+              Unverbindliche Anfrage · Antwort innerhalb von 24 Std.
+            </p>
           </div>
         {% endif %}
       {% endfor %}
