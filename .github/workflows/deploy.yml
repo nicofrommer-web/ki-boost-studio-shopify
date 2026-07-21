@@ -62,6 +62,18 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
+      - name: Verify Vercel secrets are present
+        run: |
+          missing=""
+          [ -z "${{ secrets.VERCEL_TOKEN }}" ] && missing="$missing VERCEL_TOKEN"
+          [ -z "${{ secrets.VERCEL_ORG_ID }}" ] && missing="$missing VERCEL_ORG_ID"
+          [ -z "${{ secrets.VERCEL_PROJECT_ID }}" ] && missing="$missing VERCEL_PROJECT_ID"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing/empty repository secrets:$missing — set them under Settings > Secrets and variables > Actions > Secrets (not Variables)."
+            exit 1
+          fi
+          echo "All three Vercel secrets are present (values not printed)."
+
       - name: Pull Vercel project settings
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
         env:
