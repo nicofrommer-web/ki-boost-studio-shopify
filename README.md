@@ -86,6 +86,9 @@ inklusive der zugehörigen KI-Backend-Dokumentation:
   für E-Mail/WhatsApp, Content-Agent-Prompt (AIDA/PAS) und Midjourney-v6-Prompts (Phase 3),
   sowie Headless-Architektur mit Storefront API, Webhooks, HMAC-Validierung, Idempotenz-Keys
   und Einmal-Rabattcodes (Phase 4).
+- **Deployment:** Live auf Vercel (Projekt `aura-mode-shop`), über die native Vercel-Git-Integration
+  verknüpft mit diesem Repository — jeder Push auf `main` löst automatisch ein neues Production-Deployment
+  aus (`vercel.json` steuert Build-Command, Output-Verzeichnis und den SPA-Rewrite auf `index.html`).
 
 Dieser Prototyp ist unabhängig vom Liquid-Theme und dient als Referenzimplementierung für
 ein headless Aura-Mode-Frontend; er verändert keine bestehenden Theme-Dateien.
