@@ -1,0 +1,81 @@
+<section class="aurele-hero">
+  <div class="container aurele-hero__grid">
+    <div class="aurele-hero__copy">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ section.settings.heading }}</h1>
+      <div class="aurele-hero__text">{{ section.settings.text }}</div>
+      <a class="button button--primary" href="{{ section.settings.cta_url }}">{{ section.settings.cta_label }}</a>
+      <p class="aurele-hero__note">{{ section.settings.note }}</p>
+    </div>
+    <div class="aurele-hero__media">
+      {% if section.settings.hero_image != blank %}
+        {{ section.settings.hero_image | image_url: width: 1600 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1600', sizes: '(min-width: 990px) 50vw, 100vw', alt: section.settings.hero_image.alt }}
+      {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        <span>[ECHTES AURELE HERO-BILD HOCHLADEN]</span>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="aurele-trust" aria-label="AURELE Vorteile">
+  <div class="container aurele-trust__grid">
+    <span>Für Alltag & Bewegung</span><span>Größenhilfe verfügbar</span><span>Sichere Shopify-Zahlung</span><span>14 Tage Rückgabe</span>
+  </div>
+</section>
+
+<section id="kollektion" class="section-padding">
+  <div class="container">
+    <div class="section-heading"><p class="eyebrow">The Everyday Edit</p><h2>{{ section.settings.collection_heading }}</h2><p>{{ section.settings.collection_text }}</p></div>
+    <div class="aurele-products">
+      {% if section.settings.collection != blank and section.settings.collection.products_count > 0 %}
+        {% for product in section.settings.collection.products limit: 3 %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      {% else %}
+        {% assign placeholder_names = 'Sculpt Everyday Leggings,Ribbed Everyday Tank,AURELE Everyday Set' | split: ',' %}
+        {% assign placeholder_prices = '69,90 €,39,90 €,[SET-PREIS]' | split: ',' %}
+        {% for placeholder_name in placeholder_names %}
+          <article class="product-card aurele-placeholder">
+            <div class="product-card__media">{{ 'product-apparel-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            <h3 class="product-card__title">{{ placeholder_name }}</h3>
+            <p class="product-card__price">{{ placeholder_prices[forloop.index0] }}</p>
+            <p class="placeholder-note">[PRODUKT IN SHOPIFY ANLEGEN UND START-KOLLEKTION AUSWÄHLEN]</p>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="aurele-story">
+  <div class="container aurele-story__grid">
+    <div><p class="eyebrow">Ein Set. Dein ganzer Tag.</p><h2>Entworfen für Bewegung – gemacht für den Alltag.</h2></div>
+    <div><p>AURELE verbindet eine ruhige, minimalistische Ästhetik mit unkomplizierten Essentials. Kombinierbare Pieces, die dich vom ersten Kaffee bis zum Abend begleiten.</p><a href="/pages/ueber-uns">Mehr über AURELE</a></div>
+  </div>
+</section>
+
+<section class="section-padding aurele-faq"><div class="container"><div class="section-heading"><p class="eyebrow">Gut zu wissen</p><h2>Häufige Fragen</h2></div>
+  <details><summary>Wie finde ich meine Größe?</summary><p>Nutze unsere Größenhilfe und ergänze vor dem Launch die echten Produktmaße und Passformhinweise.</p></details>
+  <details><summary>Wie lange dauert der Versand?</summary><p>[ECHTE LIEFERZEITEN FÜR DEUTSCHLAND UND ÖSTERREICH EINTRAGEN]</p></details>
+  <details><summary>Wie funktioniert eine Rückgabe?</summary><p>Du kannst deine Bestellung innerhalb von 14 Tagen widerrufen. Ergänze hier vor dem Launch Rücksendeadresse, Kostenregelung und Ablauf.</p></details>
+</div></section>
+
+{% schema %}
+{
+  "name": "AURELE Startseite",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Überzeile", "default": "AURELE · Move through your day." },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Dein Set für jeden Teil des Tages." },
+    { "type": "richtext", "id": "text", "label": "Einleitung", "default": "<p>Minimalistische Athleisure, die sich gut anfühlt und mühelos kombinieren lässt – vom Pilates-Studio bis in deinen Alltag.</p>" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero-Bild" },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Everyday Set entdecken" },
+    { "type": "url", "id": "cta_url", "label": "Button-Link" },
+    { "type": "text", "id": "note", "label": "Hinweis unter Button", "default": "[ECHTE VERSAND- ODER RETOURENINFO EINTRAGEN]" },
+    { "type": "collection", "id": "collection", "label": "AURELE Start-Kollektion" },
+    { "type": "text", "id": "collection_heading", "label": "Kollektion Überschrift", "default": "Drei Pieces. Unendlich kombinierbar." },
+    { "type": "textarea", "id": "collection_text", "label": "Kollektion Text", "default": "Ein fokussierter Start mit Leggings, Tank und dem kompletten Everyday Set." }
+  ],
+  "presets": [{ "name": "AURELE Startseite" }]
+}
+{% endschema %}
