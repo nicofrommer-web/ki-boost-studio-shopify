@@ -1,9 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "KI Boost Studio",
-    "theme_author": "KI Boost Studio",
-    "theme_version": "1.0.0",
+    "theme_name": "AURELE",
+    "theme_author": "AURELE",
+    "theme_version": "2.0.0",
     "theme_documentation_url": "https://github.com/nicofrommer-web/ki-boost-studio-shopify",
     "theme_support_url": "https://github.com/nicofrommer-web/ki-boost-studio-shopify/issues"
   },
@@ -38,19 +38,19 @@
     "settings": [
       {
         "type": "header",
-        "content": "Markenfarben: Schwarz, Weiß, Gold"
+        "content": "AURELE Markenfarben"
       },
       {
         "type": "color",
         "id": "color_black",
         "label": "Schwarz",
-        "default": "#0B0B0C"
+        "default": "#1F211E"
       },
       {
         "type": "color",
         "id": "color_ink",
         "label": "Textfarbe (dunkel)",
-        "default": "#181818"
+        "default": "#282B27"
       },
       {
         "type": "color",
@@ -62,19 +62,19 @@
         "type": "color",
         "id": "color_offwhite",
         "label": "Off-White (Hintergrund)",
-        "default": "#F6F4EF"
+        "default": "#F4F1EA"
       },
       {
         "type": "color",
         "id": "color_gold",
         "label": "Gold (Akzent)",
-        "default": "#C6A15B"
+        "default": "#7B826F"
       },
       {
         "type": "color",
         "id": "color_gold_light",
         "label": "Gold hell",
-        "default": "#E8D6AE"
+        "default": "#D9DDCF"
       }
     ]
   },
@@ -147,7 +147,7 @@
         "type": "text",
         "id": "contact_email",
         "label": "Kontakt-E-Mail",
-        "default": "hallo@ki-boost-studio.de"
+        "default": "[KONTAKT-E-MAIL EINTRAGEN]"
       },
       {
         "type": "text",
@@ -157,7 +157,8 @@
       {
         "type": "text",
         "id": "contact_address",
-        "label": "Adresse"
+        "label": "Adresse",
+        "default": "[FIRMENANSCHRIFT EINTRAGEN]"
       }
     ]
   }
