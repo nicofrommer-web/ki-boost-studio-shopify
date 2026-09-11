@@ -1,66 +1,57 @@
-<div class="section-padding">
-  <div class="container">
-    <div class="main-product">
-      <div class="main-product__media">
-        {% if product.featured_image %}
-          <img
-            src="{{ product.featured_image | image_url: width: 900 }}"
-            alt="{{ product.featured_image.alt | default: product.title }}"
-            width="900"
-            height="{{ 900 | divided_by: product.featured_image.aspect_ratio | default: 900 }}"
-          >
+<section class="section-padding product-page">
+  <div class="container main-product">
+    <div class="product-gallery">
+      {% for image in product.images %}
+        {{ image | image_url: width: 1200 | image_tag: class: 'product-gallery__image', loading: 'lazy', widths: '480, 720, 960, 1200', alt: image.alt | default: product.title }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'product-gallery__image placeholder-svg' }}
+      {% endfor %}
+    </div>
+    <div class="product-info">
+      <p class="eyebrow">AURELE · Move through your day.</p>
+      <h1 class="heading-xl">{{ product.title }}</h1>
+      <div class="product-price">
+        <span>{{ product.selected_or_first_available_variant.price | money }}</span>
+        {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+          <s>{{ product.selected_or_first_available_variant.compare_at_price | money }}</s>
         {% endif %}
       </div>
-
-      <div>
-        <h1 class="heading-xl">{{ product.title }}</h1>
-        <p class="main-product__price">
-          {%- if product.price_varies -%}
-            {{ 'products.product.price.from_price_html' | t: price: product.price_min | money }}
-          {%- else -%}
-            {{ product.price | money }}
-          {%- endif -%}
-        </p>
-
-        {% form 'product', product %}
-          {% unless product.has_only_default_variant %}
-            {% for option in product.options_with_values %}
-              <div class="product-form__input">
-                <label for="Option-{{ option.position }}"><strong>{{ option.name }}</strong></label>
-                <select id="Option-{{ option.position }}" name="options[{{ option.name }}]">
-                  {% for value in option.values %}
-                    <option value="{{ value }}" {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
-                  {% endfor %}
-                </select>
-              </div>
+      <div class="product-description">{{ product.description }}</div>
+      {% form 'product', product, class: 'product-form' %}
+        {% unless product.has_only_default_variant %}
+          <label for="Variant-{{ section.id }}">Größe / Farbe</label>
+          <select id="Variant-{{ section.id }}" name="id" class="product-select">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title }}{% unless variant.available %} – Ausverkauft{% endunless %} · {{ variant.price | money }}</option>
             {% endfor %}
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          {% else %}
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          {% endunless %}
-
-          <div class="product-form__input" style="max-width: 8rem;">
-            <label for="Quantity"><strong>{{ 'products.product.quantity.label' | t }}</strong></label>
-            <input type="number" id="Quantity" name="quantity" value="1" min="1" style="width:100%; padding:0.8em 1em; border-radius:0.6rem; border:1.5px solid rgba(11,11,12,0.15);">
-          </div>
-
-          <button type="submit" class="button button--primary button--block" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
-            {% if product.selected_or_first_available_variant.available %}
-              {{ 'products.product.add_to_cart' | t }}
-            {% else %}
-              {{ 'products.product.sold_out' | t }}
-            {% endif %}
-          </button>
-        {% endform %}
-
-        <div class="rich-text" style="margin-top: 2rem;">
-          {{ product.description }}
-        </div>
-      </div>
+          </select>
+        {% else %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {% endunless %}
+        <label for="Quantity-{{ section.id }}">Menge</label>
+        <input class="product-quantity" type="number" id="Quantity-{{ section.id }}" name="quantity" value="1" min="1">
+        <button type="submit" class="button button--primary button--block" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>{% if product.selected_or_first_available_variant.available %}In den Warenkorb{% else %}Ausverkauft{% endif %}</button>
+        {{ form | payment_button }}
+      {% endform %}
+      <ul class="product-promises">
+        <li>✓ Sichere Zahlung über Shopify</li>
+        <li>✓ Versandzeit: [ECHTE LIEFERZEIT EINTRAGEN]</li>
+        <li>✓ 14 Tage Rückgaberecht</li>
+      </ul>
+      <details><summary>Passform & Größen</summary><div>{{ section.settings.fit_text }}</div></details>
+      <details><summary>Material & Pflege</summary><div>{{ section.settings.care_text }}</div></details>
+      <details><summary>Versand & Rückgabe</summary><div>{{ section.settings.shipping_text }}</div></details>
     </div>
   </div>
-</div>
+</section>
 
 {% schema %}
-{ "name": "Produkt", "settings": [] }
+{
+  "name": "AURELE Produkt",
+  "settings": [
+    { "type": "richtext", "id": "fit_text", "label": "Passform", "default": "<p>[PASSFORM UND GRÖSSENEMPFEHLUNG EINTRAGEN]</p>" },
+    { "type": "richtext", "id": "care_text", "label": "Material und Pflege", "default": "<p>[ECHTE MATERIALZUSAMMENSETZUNG UND PFLEGEHINWEISE EINTRAGEN]</p>" },
+    { "type": "richtext", "id": "shipping_text", "label": "Versand und Rückgabe", "default": "<p>Lieferzeit: [LIEFERZEIT]. Rückgabe innerhalb von 14 Tagen. Details findest du auf unserer Seite Versand & Rückgabe.</p>" }
+  ]
+}
 {% endschema %}

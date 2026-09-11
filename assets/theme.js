@@ -1,5 +1,3 @@
-// KI Boost Studio — globales Theme-JavaScript
-
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('[data-mobile-nav-toggle]');
   const mobileNav = document.querySelector('[data-mobile-nav]');
@@ -17,6 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNav.hidden = false;
         toggle.setAttribute('aria-expanded', 'true');
       }
+    });
+
+    mobileNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileNav.removeAttribute('data-open');
+        mobileNav.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 });

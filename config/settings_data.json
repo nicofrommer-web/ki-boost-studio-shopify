@@ -12,7 +12,8 @@
       "heading_font": "playfair_display_n7",
       "body_font": "assistant_n4",
       "page_width": 1280,
-      "contact_email": "hallo@ki-boost-studio.de"
+    "contact_email": "[KONTAKT-E-MAIL EINTRAGEN]",
+    "contact_address": "[FIRMENANSCHRIFT EINTRAGEN]"
     }
   }
 }
