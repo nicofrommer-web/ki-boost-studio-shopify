@@ -510,6 +510,7 @@ function FreeShippingBar({ subtotal }) {
       </p>
       <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white">
         <div
+          data-testid="free-shipping-progress"
           className="h-full rounded-full bg-aura-terracotta transition-all duration-500"
           style={{ width: `${pct}%` }}
         />
@@ -537,6 +538,7 @@ function CartDrawer({ open, onClose, cart, onChangeQty, onRemove, onAddToCart })
         onClick={onClose}
       />
       <aside
+        data-testid="cart-drawer"
         className={`fixed right-0 top-0 z-50 flex h-full w-full max-w-md transform flex-col bg-aura-sand shadow-soft transition-transform duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
@@ -562,7 +564,7 @@ function CartDrawer({ open, onClose, cart, onChangeQty, onRemove, onAddToCart })
           {lines.length === 0 ? (
             <p className="mt-10 text-center text-sm text-aura-stone">Dein Warenkorb ist noch leer.</p>
           ) : (
-            <ul className="space-y-5">
+            <ul data-testid="cart-lines" className="space-y-5">
               {lines.map(({ product, material, qty }, idx) => (
                 <li key={`${product.id}-${material}-${idx}`} className="flex gap-4">
                   <ProductMedia icon={product.icon} tone={idx} className="h-20 w-20 shrink-0" />
@@ -633,7 +635,7 @@ function CartDrawer({ open, onClose, cart, onChangeQty, onRemove, onAddToCart })
         <div className="border-t border-aura-ink/10 px-6 py-5">
           <div className="mb-4 flex items-center justify-between text-sm">
             <span className="text-aura-stone">Zwischensumme</span>
-            <span className="font-medium text-aura-ink">{formatPrice(subtotal)}</span>
+            <span data-testid="cart-subtotal" className="font-medium text-aura-ink">{formatPrice(subtotal)}</span>
           </div>
           <button
             type="button"
